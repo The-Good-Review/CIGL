@@ -20,6 +20,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--background);
+    font-family: system-ui;
 }
 
 #logo {
@@ -530,6 +531,7 @@ footer a:hover {
     bottom: 3vw;
     left: 1vw;
     background: var(--light-green);
+    z-index: 1000;
 }
 
 .text {
