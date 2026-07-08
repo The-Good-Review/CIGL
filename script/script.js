@@ -12,7 +12,7 @@ if (servicesLink) {
     const servicesButton = servicesLink.querySelector('.swallow__icon');
 
     servicesButton?.addEventListener('click', (event) => {
-        if (window.innerWidth <= 1216)  {
+        if (window.innerWidth <= 1216) {
             event.preventDefault();
             servicesLink.classList.toggle('mobile-open');
         }
@@ -29,7 +29,7 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.presP').forEach(el => observer.observe(el));
 
-(function() {
+(function () {
     const timeline = document.querySelector('.timeline');
     if (!timeline) return;
 
@@ -44,7 +44,7 @@ document.querySelectorAll('.presP').forEach(el => observer.observe(el));
         const anim = el.animate([
             { opacity: 0, transform: 'translateY(-30px)' },
             { opacity: 1, transform: 'translateY(0)' }
-        ], { duration: containerDuration, fill: 'forwards'});
+        ], { duration: containerDuration, fill: 'forwards' });
         anim.pause();
         return anim;
     });
@@ -54,16 +54,16 @@ document.querySelectorAll('.presP').forEach(el => observer.observe(el));
         const docHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
         const maxScroll = Math.max(docHeight - viewportHeight, 0);
 
-                // Progression linéaire sur toute la page: 0 (haut) -> 1 (bas)
-                let raw = maxScroll > 0 ? window.scrollY / maxScroll : 0;
-                raw = Math.min(Math.max(raw, 0.02), 1);
+        // Progression linéaire sur toute la page: 0 (haut) -> 1 (bas)
+        let raw = maxScroll > 0 ? window.scrollY / maxScroll : 0;
+        raw = Math.min(Math.max(raw, 0.02), 1);
 
-                const finishPoint = 0.4;
-                let prog = raw / finishPoint;
-                if (prog > 1) prog = 1;
+        const finishPoint = 0.4;
+        let prog = raw / finishPoint;
+        if (prog > 1) prog = 1;
 
-                // légère courbe d'accélération
-                prog = Math.pow(prog, 0.8);
+        // légère courbe d'accélération
+        prog = Math.pow(prog, 0.8);
 
         // set each animation time with stagger based on index
         animations.forEach((anim, i) => {
@@ -87,3 +87,6 @@ document.querySelectorAll('.presP').forEach(el => observer.observe(el));
     window.addEventListener('resize', update);
     update();
 })();
+
+// accessibilité
+(function (w, d, s, u, o) { w._cyA11yConfig = { "iconId" : "default", "position": { "mobile": "bottom-right", "desktop": "bottom-right" }, "language": { "default": "fr", "selected": [] }, "keyboard": { "enabled": true, "shortcut": "alt+a" } }; var js = d.createElement(s), fjs = d.getElementsByTagName(s)[0]; js.src = u; js.async = true; fjs.parentNode.insertBefore(js, fjs); })(window, document, "script", "https://cdn-cookieyes.com/widgets/accessibility.js?id=767a5141-1bc4-4f0a-9d2e-ef88543d9996");
