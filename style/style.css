@@ -719,7 +719,16 @@ footer a:hover {
 
 #profilS,
 #profilA {
-    width: 30vw;
+    display: flex;
+    gap: 2vw;
+}
+
+#graphS,
+#legendeS,
+#graphA,
+#legendeA {
+    height: 15vw;
+    width: auto;
 }
 
 #depart {
@@ -1111,6 +1120,40 @@ h4 {
 
     #profilS,
     #profilA,
+    #profilD {
+        flex-direction: column;
+    }
+
+    #graphS{
+        height: 250px;
+        width: 130px;
+        margin-left: 15vw;
+    }
+
+    #graphA{
+        height: 250px;
+        width: 200px;
+        margin-left: 15vw;
+    }
+
+    #graphD{
+        margin-left: 15vw;
+    }
+
+    #legendeS {
+        width: 70vw;
+        height: auto;
+    }
+    #legendeA {
+        width: 80vw;
+        height: auto;
+        margin-left: 2vw;
+    }
+
+    #legendeD{
+        margin-left: 15vw;
+    }
+
     #depart,
     #heureAcceuil {
         width: auto;
