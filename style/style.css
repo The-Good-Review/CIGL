@@ -1127,10 +1127,11 @@ h4 {
         justify-content: space-around;
         cursor: pointer;
         position: fixed;
-        bottom: 45vw;
+        bottom: 5vw;
         left: 2vw;
         background: var(--light-green);
         z-index: 1000;
+        transition: all 0.4s;
     }
 
     .text {
@@ -1153,10 +1154,11 @@ h4 {
         justify-content: space-around;
         cursor: pointer;
         position: fixed;
-        bottom: 45vw;
+        bottom: 5vw;
         left: 2vw;
         background: var(--light-green);
         z-index: 1000;
+        transition: all 0.4s;
     }
 }
 
