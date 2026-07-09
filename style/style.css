@@ -718,7 +718,8 @@ footer a:hover {
 }
 
 #profilS,
-#profilA {
+#profilA,
+#profilD {
     display: flex;
     gap: 2vw;
 }
@@ -1023,7 +1024,16 @@ h4 {
     }
 
     .carousel {
-        height: 75vw;
+        height: 80vw;
+        width: 60%;
+        overflow-x: auto;
+        margin: 3em auto;
+        display: flex;
+        gap: 1em;
+        scroll-behavior: smooth;
+        anchor-name: --carousel;
+        scroll-snap-type: x mandatory;
+        scroll-marker-group: after;
     }
 
     .slide {
@@ -1113,52 +1123,6 @@ h4 {
         left: -34px;
     }
 
-    .graph {
-        flex-direction: column;
-    }
-
-    .graph img {
-        height: 20vh;
-        width: auto;
-    }
-
-    #profilS,
-    #profilA,
-    #profilD {
-        flex-direction: column;
-    }
-
-    #graphS{
-        height: 250px;
-        width: 130px;
-        margin-left: 15vw;
-    }
-
-    #graphA{
-        height: 250px;
-        width: 200px;
-        margin-left: 15vw;
-    }
-
-    #graphD{
-        height: 200px;
-        margin-left: 15vw;
-    }
-
-    #legendeS {
-        width: 70vw;
-        height: auto;
-    }
-    #legendeA {
-        width: 80vw;
-        height: auto;
-        margin-left: 2vw;
-    }
-
-    #legendeD{
-        margin-left: 15vw;
-    }
-
     #depart,
     #heureAcceuil {
         width: auto;
@@ -1208,11 +1172,67 @@ h4 {
         z-index: 1000;
         transition: all 0.4s;
     }
+
+    .service {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 4vw;
+    }
 }
 
 @media (max-width: 800px) {
     .card {
         height: auto;
         flex-direction: column;
+    }
+
+    .graph {
+        flex-direction: column;
+    }
+
+    .graph img {
+        height: 20vh;
+        width: auto;
+    }
+
+    #profilS,
+    #profilA,
+    #profilD {
+        flex-direction: column;
+    }
+
+    #graphS {
+        height: 250px;
+        width: 130px;
+        margin-left: 15vw;
+    }
+
+    #graphA {
+        height: 250px;
+        width: 200px;
+        margin-left: 15vw;
+    }
+
+    #graphD {
+        height: 200px;
+        margin-left: 15vw;
+    }
+
+    #legendeS {
+        width: 70vw;
+        height: auto;
+    }
+
+    #legendeA {
+        width: 80vw;
+        height: auto;
+        margin-left: 2vw;
+    }
+
+    #legendeD {
+        width: 65vw;
+        height: auto;
+        margin-left: 5vwvw;
     }
 }
