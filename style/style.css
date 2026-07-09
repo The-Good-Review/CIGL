@@ -1058,8 +1058,12 @@ h4 {
                 var(--middle-grey) 52px);
         top: -2.5vw;
         left: 0;
-        margin-left: -3px;
+        margin-left: -6px;
         z-index: -1;
+    }
+
+    .container {
+        padding: 15px 40px;
     }
 
     .right {
@@ -1137,6 +1141,7 @@ h4 {
     }
 
     #graphD{
+        height: 200px;
         margin-left: 15vw;
     }
 
