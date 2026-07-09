@@ -78,6 +78,10 @@ nav>.nav-item>a {
     margin-left: 4px;
 }
 
+.nav-back {
+    display: none;
+}
+
 nav>.nav-item.active>a,
 nav>.nav-item:hover>a {
     color: var(--deep-green);
@@ -262,7 +266,6 @@ nav>.nav-item:hover>a::after {
     left: 5px;
 }
 
-
 h1 {
     text-align: center;
     font-family: system-ui;
@@ -444,6 +447,7 @@ footer {
     color: var(--middle-grey);
     padding: 1rem 0;
     background-color: var(--middle-light-grey);
+    height: auto;
 }
 
 footer a {
@@ -536,10 +540,7 @@ footer a:hover {
 
 .text {
     position: absolute;
-    color: var(--background);
-    width: 120px;
-    font-weight: 600;
-    transition-duration: 0.4s;
+    top: 7px;
 }
 
 .media {
@@ -565,156 +566,9 @@ footer a:hover {
 }
 
 
-@media (max-width: 1216px) {
-    header {
-        flex-wrap: wrap;
-        padding: 20px 24px;
-        position: sticky;
-    }
 
-    #logo {
-        width: 45vw;
-    }
-
-    nav {
-        order: 3;
-        flex-direction: column;
-        gap: 0;
-        width: 100%;
-        background-color: var(--middle-light-grey);
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        padding: 0 24px;
-        box-sizing: border-box;
-        max-height: 0;
-        overflow: hidden;
-        opacity: 0;
-        transform: translateY(-10px);
-        pointer-events: none;
-        transition: max-height .3s ease, opacity .3s ease, transform .3s ease;
-    }
-
-    nav.open {
-        max-height: 800px;
-        opacity: 1;
-        transform: translateY(0);
-        pointer-events: auto;
-        padding-bottom: 16px;
-    }
-
-    nav>.nav-item {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0;
-        border-bottom: 1px solid var(--light-green);
-    }
-
-    nav>.nav-item:last-child {
-        border-bottom: none;
-    }
-
-    nav>.nav-item>a {
-        display: block;
-        padding: 14px 0;
-        flex: 1;
-    }
-
-    .submenu-toggle {
-        display: inline-flex;
-        padding: 14px 0;
-    }
-
-    .dropdown,
-    .submenu {
-        position: static;
-        min-width: 100%;
-        background: transparent;
-        border-radius: 0;
-        opacity: 0;
-        visibility: hidden;
-        transform: none;
-        padding-left: 0;
-        box-sizing: border-box;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height .3s ease, opacity .3s ease, padding .3s ease, visibility .3s ease;
-    }
-
-    .dropdown.open,
-    .submenu.open {
-        max-height: 1000px;
-        opacity: 1;
-        visibility: visible;
-        padding-left: 12px;
-        padding-top: 4px;
-    }
-
-    .dropdown .dd-item {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-    }
-
-    .dropdown .dd-item>a {
-        display: block;
-        padding: 12px 0;
-        border-bottom: 1px solid var(--dropdown-border);
-        white-space: normal;
-        flex: 1;
-    }
-
-    .dropdown .dd-item:last-child>a {
-        border-bottom: none;
-    }
-
-    .submenu a {
-        padding: 12px 0;
-        border-bottom: 1px solid var(--dropdown-border);
-        white-space: normal;
-    }
-
-    .submenu ul {
-        padding-left: 0;
-    }
-
-    .burger {
-        display: block;
-        z-index: 60;
-    }
-
-    .carousel {
-        height: 75vw;
-    }
-
-    .slide {
-        height: 70vw;
-    }
-
-    #prestxt {
-        font-size: 1rem;
-    }
-
-    #videopres {
-        width: 70%;
-    }
-
-    .card {
-        width: 70%
-    }
-}
-
-@media (max-width: 800px) {
-    .card {
-        width: 90%
-    }
-}
 
 /* LE CIGL EN BREF */
-
 
 .timeline {
     font-family: system-ui;
@@ -724,7 +578,7 @@ footer a:hover {
 }
 
 .container {
-    padding: 10px 50px;
+    padding: 15px 50px;
     position: relative;
     width: 41.65%;
     transition: all 0.3s ease;
@@ -960,4 +814,304 @@ h4 {
 
 #logo-ywc {
     height: 8vw;
+}
+
+
+@media (max-width: 1216px) {
+    header {
+        flex-wrap: wrap;
+        padding: 20px 24px;
+        position: sticky;
+    }
+
+    #logo {
+        width: 45vw;
+    }
+
+    nav {
+        order: 3;
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+        background-color: var(--middle-light-grey);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding: 0 24px;
+        box-sizing: border-box;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(-10px);
+        pointer-events: none;
+        transition: max-height .3s ease, opacity .3s ease, transform .3s ease;
+    }
+
+    nav.open {
+        max-height: 800px;
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+        padding-bottom: 16px;
+    }
+
+    nav>.nav-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        padding: 0;
+        border-bottom: 1px solid var(--light-green);
+    }
+
+    nav>.nav-item:last-child {
+        border-bottom: none;
+    }
+
+    nav>.nav-item>a {
+        display: block;
+        padding: 14px 0;
+        flex: 1;
+    }
+
+    .submenu-toggle {
+        display: inline-flex;
+        padding: 14px 0;
+    }
+
+    /* on mobile the real toggle button is used instead of the ::after arrow */
+    .dropdown .dd-item.has-sub>a::after {
+        display: none;
+    }
+
+    /* "Retour" button, only visible once a level has been opened */
+    #menu .nav-back {
+        display: none;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+        padding: 14px 0;
+        margin: 0;
+        border: none;
+        border-bottom: 1px solid var(--light-green);
+        background: transparent;
+        color: var(--light-green);
+        font-family: system-ui;
+        font-size: 1rem;
+        text-align: left;
+        cursor: pointer;
+    }
+
+    #menu .nav-back span {
+        font-size: 1.2rem;
+    }
+
+    #menu[data-drill="1"] .nav-back,
+    #menu[data-drill="2"] .nav-back {
+        display: flex;
+    }
+
+    /* LEVEL 1 & 2: a top-level item's dropdown replaces the main menu list, and stays open while drilling into level 2 */
+    #menu[data-drill="1"]>.nav-item:not(.drill-active),
+    #menu[data-drill="2"]>.nav-item:not(.drill-active) {
+        display: none;
+    }
+
+    #menu[data-drill="1"]>.nav-item.drill-active>a,
+    #menu[data-drill="1"]>.nav-item.drill-active>.submenu-toggle,
+    #menu[data-drill="2"]>.nav-item.drill-active>a,
+    #menu[data-drill="2"]>.nav-item.drill-active>.submenu-toggle {
+        display: none;
+    }
+
+    #menu[data-drill="1"]>.nav-item.drill-active>.dropdown,
+    #menu[data-drill="2"]>.nav-item.drill-active>.dropdown {
+        max-height: none;
+        opacity: 1;
+        visibility: visible;
+        padding-left: 0;
+    }
+
+    /* LEVEL 2: a dd-item's submenu replaces the dropdown's item list */
+    #menu[data-drill="2"] .dropdown .dd-item:not(.drill-active) {
+        display: none;
+    }
+
+    #menu[data-drill="2"] .dropdown .dd-item.drill-active>a,
+    #menu[data-drill="2"] .dropdown .dd-item.drill-active>.submenu-toggle {
+        display: none;
+    }
+
+    #menu[data-drill="2"] .dropdown .dd-item.drill-active>.submenu {
+        max-height: none;
+        opacity: 1;
+        visibility: visible;
+        padding-left: 0;
+    }
+
+    .dropdown,
+    .submenu {
+        position: static;
+        min-width: 100%;
+        background: transparent;
+        border-radius: 0;
+        opacity: 0;
+        visibility: hidden;
+        transform: none;
+        padding-left: 0;
+        box-sizing: border-box;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height .3s ease, opacity .3s ease, padding .3s ease, visibility .3s ease;
+    }
+
+    .dropdown.open,
+    .submenu.open {
+        max-height: 1000px;
+        opacity: 1;
+        visibility: visible;
+        padding-left: 12px;
+        padding-top: 4px;
+    }
+
+    .dropdown .dd-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .dropdown .dd-item>a {
+        display: block;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--dropdown-border);
+        white-space: normal;
+        flex: 1;
+    }
+
+    .dropdown .dd-item:last-child>a {
+        border-bottom: none;
+    }
+
+    .submenu a {
+        padding: 12px 0;
+        border-bottom: 1px solid var(--dropdown-border);
+        white-space: normal;
+    }
+
+    .submenu ul {
+        padding-left: 0;
+    }
+
+    .burger {
+        display: block;
+        z-index: 60;
+    }
+
+    .carousel {
+        height: 75vw;
+    }
+
+    .slide {
+        height: 70vw;
+    }
+
+    #prestxt {
+        font-size: 1rem;
+    }
+
+    #videopres {
+        width: 70%;
+    }
+
+    .card {
+        width: 70%
+    }
+
+    .timeline {
+        width: 53%;
+    }
+
+    .timeline::after {
+        content: '';
+        position: absolute;
+        width: 6px;
+        height: var(--line-height, 0%);
+        background: repeating-linear-gradient(to bottom,
+                transparent,
+                transparent 26px,
+                var(--middle-grey) 26px,
+                var(--middle-grey) 52px);
+        top: -2.5vw;
+        left: 0;
+        margin-left: -3px;
+        z-index: -1;
+    }
+
+    .right {
+        left: 5%;
+        width: 100%;
+    }
+
+    .left {
+        left: 5%;
+        width: 100%;
+    }
+
+    .left-arrow {
+        height: 0;
+        width: 0;
+        position: absolute;
+        top: 28px;
+        z-index: 1;
+        border-top: 15px solid transparent;
+        border-bottom: 15px solid transparent;
+        border-right: 15px solid var(--middle-light-grey);
+        border-left: 15px solid transparent;
+        left: -25px;
+    }
+
+    .right-arrow {
+        height: 0;
+        width: 0;
+        position: absolute;
+        top: 28px;
+        z-index: 1;
+        border-top: 15px solid transparent;
+        border-bottom: 15px solid transparent;
+        border-right: 15px solid var(--middle-light-grey);
+        left: -10px;
+    }
+
+    .right img {
+        position: absolute;
+        width: 40px;
+        left: -34px;
+        top: 32px;
+        z-index: 10;
+    }
+
+    .left img {
+        left: -34px;
+    }
+    
+    .graph {
+        flex-direction: column;
+    }
+    .graph img{
+        height: 20vh;
+        width: auto;
+    }
+
+    #profilS, #profilA, #depart, #heureAcceuil {
+        width: auto;
+    }
+}
+
+@media (max-width: 800px) {
+    .card {
+        height: auto;
+        flex-direction: column;
+    }
 }

@@ -19,6 +19,88 @@ if (servicesLink) {
     });
 }
 
+(function () {
+    const menu = document.getElementById('menu');
+    if (!menu) return;
+
+    const MOBILE_BREAKPOINT = 1216;
+
+    function setDrill(level) {
+        if (level === 0) {
+            menu.removeAttribute('data-drill');
+        } else {
+            menu.setAttribute('data-drill', String(level));
+        }
+    }
+
+    function resetDrill() {
+        menu.querySelectorAll('.drill-active').forEach((el) => el.classList.remove('drill-active'));
+        menu.querySelectorAll('.submenu-toggle[aria-expanded="true"]').forEach((btn) => btn.setAttribute('aria-expanded', 'false'));
+        setDrill(0);
+    }
+
+    // Level 1: top-level nav-item toggle -> its dropdown replaces the main list
+    menu.querySelectorAll(':scope > .nav-item > .submenu-toggle').forEach((btn) => {
+        btn.addEventListener('click', (event) => {
+            if (window.innerWidth > MOBILE_BREAKPOINT) return;
+            event.preventDefault();
+            const navItem = btn.closest('.nav-item');
+            navItem.classList.add('drill-active');
+            btn.setAttribute('aria-expanded', 'true');
+            setDrill(1);
+        });
+    });
+
+    // Level 2: dd-item toggle -> its submenu replaces the dropdown's list
+    menu.querySelectorAll('.dd-item.has-sub > .submenu-toggle').forEach((btn) => {
+        btn.addEventListener('click', (event) => {
+            if (window.innerWidth > MOBILE_BREAKPOINT) return;
+            event.preventDefault();
+            const ddItem = btn.closest('.dd-item');
+            ddItem.classList.add('drill-active');
+            btn.setAttribute('aria-expanded', 'true');
+            setDrill(2);
+        });
+    });
+
+    // "Retour" goes back exactly one level
+    const backBtn = document.getElementById('navBack');
+    if (backBtn) {
+        backBtn.addEventListener('click', () => {
+            const currentDrill = menu.getAttribute('data-drill');
+            if (currentDrill === '2') {
+                const activeDd = menu.querySelector('.dd-item.drill-active');
+                if (activeDd) {
+                    activeDd.classList.remove('drill-active');
+                    const toggle = activeDd.querySelector(':scope > .submenu-toggle');
+                    if (toggle) toggle.setAttribute('aria-expanded', 'false');
+                }
+                setDrill(1);
+            } else if (currentDrill === '1') {
+                const activeItem = menu.querySelector(':scope > .nav-item.drill-active');
+                if (activeItem) {
+                    activeItem.classList.remove('drill-active');
+                    const toggle = activeItem.querySelector(':scope > .submenu-toggle');
+                    if (toggle) toggle.setAttribute('aria-expanded', 'false');
+                }
+                setDrill(0);
+            }
+        });
+    }
+
+    // reset the drill state whenever the mobile menu is closed or the burger is unchecked
+    if (burger) {
+        burger.addEventListener('change', () => {
+            if (!burger.checked) resetDrill();
+        });
+    }
+
+    // reset if the viewport grows back into desktop size
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > MOBILE_BREAKPOINT) resetDrill();
+    });
+})();
+
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -89,4 +171,4 @@ document.querySelectorAll('.presP').forEach(el => observer.observe(el));
 })();
 
 // accessibilité
-(function (w, d, s, u, o) { w._cyA11yConfig = { "iconId" : "default", "position": { "mobile": "bottom-right", "desktop": "bottom-right" }, "language": { "default": "fr", "selected": [] }, "keyboard": { "enabled": true, "shortcut": "alt+a" } }; var js = d.createElement(s), fjs = d.getElementsByTagName(s)[0]; js.src = u; js.async = true; fjs.parentNode.insertBefore(js, fjs); })(window, document, "script", "https://cdn-cookieyes.com/widgets/accessibility.js?id=767a5141-1bc4-4f0a-9d2e-ef88543d9996");
+(function (w, d, s, u, o) { w._cyA11yConfig = { "iconId": "default", "position": { "mobile": "bottom-right", "desktop": "bottom-right" }, "language": { "default": "fr", "selected": [] }, "keyboard": { "enabled": true, "shortcut": "alt+a" } }; var js = d.createElement(s), fjs = d.getElementsByTagName(s)[0]; js.src = u; js.async = true; fjs.parentNode.insertBefore(js, fjs); })(window, document, "script", "https://cdn-cookieyes.com/widgets/accessibility.js?id=767a5141-1bc4-4f0a-9d2e-ef88543d9996");
