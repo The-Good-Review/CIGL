@@ -1,10 +1,16 @@
 const burger = document.getElementById('burger');
 const menu = document.getElementById('menu');
+const btn = document.getElementById('btn');
 const servicesLink = document.getElementById('services-link');
 
 if (burger && menu) {
     burger.addEventListener('change', () => {
         menu.classList.toggle('open', burger.checked);
+        if (btn.style.display == 'flex') {
+            btn.style.display = 'none';
+        } else {
+            btn.style.display = 'flex';
+        }
     });
 }
 
@@ -20,7 +26,6 @@ if (servicesLink) {
 }
 
 (function () {
-    const menu = document.getElementById('menu');
     if (!menu) return;
 
     const MOBILE_BREAKPOINT = 1216;
