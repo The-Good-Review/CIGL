@@ -1448,6 +1448,9 @@ button[type="submit"]:focus-visible {
 }
 
 @media (max-width: 800px) {
+    h6{
+        font-size: 1.4rem;
+    }
     .card {
         height: auto;
         flex-direction: column;
