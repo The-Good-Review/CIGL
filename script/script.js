@@ -177,3 +177,31 @@ document.querySelectorAll('.presP').forEach(el => observer.observe(el));
 
 // accessibilité
 (function (w, d, s, u, o) { w._cyA11yConfig = { "iconId": "default", "position": { "mobile": "bottom-right", "desktop": "bottom-right" }, "language": { "default": "fr", "selected": [] }, "keyboard": { "enabled": true, "shortcut": "alt+a" } }; var js = d.createElement(s), fjs = d.getElementsByTagName(s)[0]; js.src = u; js.async = true; fjs.parentNode.insertBefore(js, fjs); })(window, document, "script", "https://cdn-cookieyes.com/widgets/accessibility.js?id=767a5141-1bc4-4f0a-9d2e-ef88543d9996");
+
+// candidature spontanée
+const form = document.getElementById('candidature-form');
+const confirmBox = document.getElementById('confirm');
+
+function bindFileName(inputId, labelId) {
+    const input = document.getElementById(inputId);
+    const label = document.getElementById(labelId);
+    input.addEventListener('change', () => {
+        label.textContent = input.files.length ? input.files[0].name : '';
+    });
+}
+bindFileName('cv', 'cv-name');
+bindFileName('lettre', 'lettre-name');
+
+form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+    }
+    // Ici : remplacer par un envoi réel (fetch vers votre backend, service d'emailing, etc.)
+    confirmBox.classList.add('show');
+    confirmBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    form.reset();
+    document.getElementById('cv-name').textContent = '';
+    document.getElementById('lettre-name').textContent = '';
+});
