@@ -1027,6 +1027,7 @@ h4 {
         width: 60%;
         overflow-x: auto;
         margin: 3em auto;
+        margin-bottom: -4vw;
         display: flex;
         gap: 1em;
         scroll-behavior: smooth;
