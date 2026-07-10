@@ -749,7 +749,8 @@ footer a:hover {
 }
 
 #formations {
-    width: 70vw;
+    width: 85vw;
+    height: auto;
 }
 
 /* ACCOMPAGNEMENT */
@@ -1485,7 +1486,6 @@ button[type="submit"]:focus-visible {
 
     #graphD {
         height: 200px;
-        margin-left: 15vw;
     }
 
     #legendeS {
