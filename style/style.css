@@ -291,6 +291,7 @@ h3 {
     height: 35vw;
     overflow-x: auto;
     margin: 3em auto;
+    margin-bottom: -4vw;
     display: flex;
     gap: 1em;
     scroll-behavior: smooth;
