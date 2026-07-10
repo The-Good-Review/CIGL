@@ -320,13 +320,11 @@ h3 {
     position: fixed;
     position-anchor: --carousel;
     position-area: right center;
-    translate: 25%;
 }
 
 .carousel::scroll-button(left) {
     content: "<";
     position-area: left center;
-    translate: -25%;
 }
 
 .carousel::scroll-button(right):disabled,
