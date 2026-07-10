@@ -306,7 +306,7 @@ h3 {
 
 .carousel::scroll-button(right),
 .carousel::scroll-button(left) {
-    content: "→";
+    content: "🠖";
     border: none;
     background-color: var(--light-green);
     font-family: Consolas;
@@ -324,7 +324,7 @@ h3 {
 }
 
 .carousel::scroll-button(left) {
-    content: "←";
+    content: "🠔";
     position-area: left center;
     translate: -25%;
 }
