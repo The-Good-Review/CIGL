@@ -2386,6 +2386,7 @@ button[type="submit"]:focus-visible {
 .article-body {
     flex: 1;
     min-width: 0;
+    align-items: baseline;
 }
 
 .article-eyebrow {
@@ -2668,7 +2669,6 @@ button[type="submit"]:focus-visible {
 
 .content {
     margin-top: 0.75rem;
-    text-align: center;
 }
 
 .title {
