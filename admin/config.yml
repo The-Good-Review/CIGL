@@ -242,3 +242,31 @@ collections:
               - label: Image
                 name: img
                 widget: image
+
+          - label: Actualité 5
+            name: actu5
+            widget: object
+            fields:
+              - label: Titre
+                name: titre
+                widget: string
+
+              - label: Sous-titre
+                name: sous-titre
+                widget: string
+
+              - label: Catégorie
+                name: categorie
+                widget: string
+
+              - label: Contenu
+                name: contenu
+                widget: text
+
+              - label: Date
+                name: date
+                widget: string
+
+              - label: Image
+                name: img
+                widget: image
