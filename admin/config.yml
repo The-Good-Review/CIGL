@@ -31,8 +31,7 @@ collections:
             widget: number
 
   - name: service
-    label: Servi
-    cecreate: true
+    label: Service
     files:
       - label: Page de services
         name: service
@@ -169,6 +168,7 @@ collections:
 
   - name: actualites
     label: Actualités
+    create: true
     files:
       - label: Actualités
         name: actualites
