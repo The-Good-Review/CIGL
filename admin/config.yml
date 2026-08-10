@@ -30,6 +30,48 @@ collections:
             name: annees
             widget: number
 
+  - name: service
+    label: Service
+    files:
+      - label: Page de services
+        name: service
+        file: "content/service.json"
+        fields:
+          - label: Vélo
+            name: velo
+            widget: number
+
+          - label: Accueil
+            name: accueil
+            widget: number
+
+          - label: Désherbage
+            name: desherbage
+            widget: number
+
+  - name: accompagnement
+    label: Accompagnement
+    files:
+      - label: Page d'accompagnement
+        name: accompagnement
+        file: "content/accompagnement.json"
+        fields:
+          - label: Salaries
+            name: salaries
+            widget: number
+
+          - label: Cinquantenaire
+            name: cinquantenaire
+            widget: number
+
+          - label: Heures
+            name: heures
+            widget: number
+
+          - label: Formations
+            name: formations
+            widget: number
+
   - name: emplois
     label: Emplois
     files:

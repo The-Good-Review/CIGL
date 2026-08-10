@@ -1,3 +1,11 @@
+<?php
+
+$accomp = json_decode(
+    file_get_contents("content/accompagnement.json"),
+    true
+);
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -133,7 +141,7 @@
                     <img src="img/icons/stats/salarie.png" alt="">
                 </div>
                 <div class="stats-not-icon">
-                    <div class="stat-number" data-target="181">0</div>
+                    <div class="stat-number" data-target="<?= $accomp["salaries"] ?>">0</div>
                     <div class="stat-label">salariés en insertions</div>
                 </div>
             </div>
@@ -144,7 +152,7 @@
                 <div class="stats-not-icon">
                     <div class="stat-label">dont</div>
                     <div class="stat-nu">
-                        <div class="stat-number" data-target="40">0</div>
+                        <div class="stat-number" data-target="<?= $accomp["cinquantenaire"] ?>">0</div>
                         <div class="stat-unit">%</div>
                     </div>
                     <div class="stat-label">de plus de 50 ans</div>
@@ -156,7 +164,7 @@
                 </div>
                 <div class="stats-not-icon">
                     <div class="stat-nu">
-                        <div class="stat-number" data-target="14724">0</div>
+                        <div class="stat-number" data-target="<?= $accomp["heures"] ?>">0</div>
                         <div class="stat-unit">h</div>
                     </div>
                     <div class="stat-label">de formations réalisées</div>
@@ -168,7 +176,7 @@
                 </div>
                 <div class="stats-not-icon">
                     <div class="stat-label">réparties en</div>
-                    <div class="stat-number" data-target="196"></div>
+                    <div class="stat-number" data-target="<?= $accomp["formations"] ?>"></div>
                     <div class="stat-label">formations différentes</div>
                 </div>
             </div>

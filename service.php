@@ -1,3 +1,11 @@
+<?php
+
+$service = json_decode(
+    file_get_contents("content/service.json"),
+    true
+);
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -152,7 +160,7 @@
                         <img src="img/icons/chronologie/velo.png" alt="">
                     </div>
                     <div class="stats-not-icon-service">
-                        <div class="stat-number" data-target="603">0</div>
+                        <div class="stat-number" data-target="<?= $service["velo"] ?>">0</div>
                         <div class="stat-label">vélos éléctriques à disposition</div>
                     </div>
                 </div>
@@ -161,7 +169,7 @@
                         <img src="img/icons/chronologie/poussette.png" alt="">
                     </div>
                     <div class="stats-not-icon-service">
-                        <div class="stat-number" data-target="116"></div>
+                        <div class="stat-number" data-target="<?= $service["accueil"] ?>"></div>
                         <div class="stat-label">places d'accueil</div>
                     </div>
                 </div>
@@ -170,7 +178,7 @@
                         <img src="img/icons/chronologie/feuille.png" alt="">
                     </div>
                     <div class="stats-not-icon-service">
-                            <div class="stat-number" data-target="40">0</div>
+                            <div class="stat-number" data-target="<?= $service["desherbage"] ?>">0</div>
                             <div class="stat-label">rues/places désherbées</div>
                     </div>
                 </div>
