@@ -31,7 +31,8 @@ collections:
             widget: number
 
   - name: service
-    label: Service
+    label: Servi
+    cecreate: true
     files:
       - label: Page de services
         name: service
