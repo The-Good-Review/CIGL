@@ -327,6 +327,32 @@ $actus = json_decode(
                         </div>
                     </article>
 
+                    <article class="article-card" data-category="<?= $actus["actu5"]["categorie"] ?>" data-title=<?= $actus["actu5"]["sous-titre"] ?>
+                        data-tag="<?= $actus["actu5"]["titre"] ?>">
+                        <div class="article-thumb" aria-hidden="true">
+                            <img src="<?= $actus["actu5"]["img"] ?>" alt="">
+                        </div>
+                        <div class="article-body">
+                            <p class="article-eyebrow eyebrow-red"><?= $actus["actu5"]["titre"] ?></p>
+                            <h3><?= $actus["actu5"]["sous-titre"] ?></h3>
+                            <p class="article-desc"><?= $actus["actu5"]["contenu"] ?>
+                            </p>
+                            <div class="article-meta">
+                                <span class="article-date">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" />
+                                        <line x1="16" y1="2" x2="16" y2="6" />
+                                        <line x1="8" y1="2" x2="8" y2="6" />
+                                        <line x1="3" y1="10" x2="21" y2="10" />
+                                    </svg>
+                                    <?= $actus["actu5"]["date"] ?>
+                                </span>
+                                <span class="tag tag-orange"><?= $actus["actu5"]["titre"] ?></span>
+                            </div>
+                        </div>
+                    </article>
+
                     <p class="no-results" id="noResults" hidden>Aucune actualité ne correspond à votre recherche.</p>
                 </section>
             </div>
