@@ -171,7 +171,7 @@ $accueil = json_decode(
                     <div class="stats-not-icon">
                         <div class="stat-nu">
                             <div class="stat-unit">+</div>
-                            <div class="stat-number" data-target="<?= $accueil["augmentation activite de formation"] ?>">0</div>
+                            <div class="stat-number" data-target="<?= $accueil["formation"] ?>">0</div>
                             <div class="stat-unit">%</div>
                         </div>
                         <div class="stat-label">d'activité de formation en 2025</div>

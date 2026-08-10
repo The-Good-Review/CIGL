@@ -22,8 +22,8 @@ collections:
             name: nationalites
             widget: number
 
-          - label: Augmentation d'activité de formation
-            name: "augmentation activite de formation"
+          - label: Formation
+            name: "formation"
             widget: number
 
           - label: Années
