@@ -2348,6 +2348,8 @@ button[type="submit"]:focus-visible {
     border: 1px solid var(--line);
     border-radius: 10px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column-reverse;
 }
 
 .article-card {

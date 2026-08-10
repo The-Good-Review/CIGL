@@ -5,7 +5,7 @@
     "categorie": "vie-associative",
     "contenu": "Retour sur notre assemblée générale et les moments forts de l'année écoulée.",
     "date": "12 mai 2025",
-    "img": "uploads/actus/assemblée.jpg"
+    "img": "uploads/assemblée.jpg"
   },
   "actu2": {
     "titre": "Jardin & environnement",
@@ -13,7 +13,7 @@
     "categorie": "projets",
     "contenu": "Un bel après-midi partagé autour de la nature et de la biodiversité.",
     "date": "5 mai 2025",
-    "img": "uploads/actus/atelier.jpg"
+    "img": "uploads/atelier.jpg"
   },
   "actu3": {
     "titre": "Mobilité",
@@ -21,7 +21,7 @@
     "categorie": "services",
     "contenu": "Notre atelier vélo rouvre ses portes dès le 2 mai !",
     "date": "2 mai 2025",
-    "img": "uploads/actus/velo.jpg"
+    "img": "uploads/velo.jpg"
   },
   "actu4": {
     "titre": "Événement",
@@ -29,7 +29,7 @@
     "categorie": "evenements",
     "contenu": "Rejoignez-nous le 24 mai pour une journée festive et conviviale",
     "date": "24 avril 2025",
-    "img": "uploads/actus/fetePrintemps.jpg"
+    "img": "uploads/fetePrintemps.jpg"
   },
   "actu5": {
     "titre": "Événement",
