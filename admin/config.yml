@@ -8,17 +8,237 @@ public_folder: "/img/uploads"
 
 collections:
   - name: accueil
-
     label: Accueil
-
     files:
-      - label: Accueil
-
+      - label: Page d'accueil
         name: accueil
-
-        file: content/accueil.json
-
+        file: "content/accueil.json"
         fields:
-          - { label: Titre, name: titre, widget: string }
+          - label: Collaborateurs
+            name: collaborateurs
+            widget: number
 
-          - { label: Description, name: description, widget: text }
+          - label: Nationalités
+            name: nationalites
+            widget: number
+
+          - label: Augmentation d'activité de formation
+            name: "augmentation activite de formation"
+            widget: number
+
+          - label: Années
+            name: annees
+            widget: number
+
+  - name: emplois
+    label: Emplois
+    files:
+      - label: Offres d'emploi
+        name: emplois
+        file: "content/emplois.json"
+        fields:
+          - label: Offre 1
+            name: offre1
+            widget: object
+            fields:
+              - label: Poste
+                name: poste
+                widget: string
+
+              - label: Description
+                name: description
+                widget: text
+
+              - label: Date
+                name: date
+                widget: string
+
+              - label: Contrat
+                name: contrat
+                widget: string
+
+          - label: Offre 2
+            name: offre2
+            widget: object
+            fields:
+              - label: Poste
+                name: poste
+                widget: string
+
+              - label: Description
+                name: description
+                widget: text
+
+              - label: Date
+                name: date
+                widget: string
+
+              - label: Contrat
+                name: contrat
+                widget: string
+
+          - label: Offre 3
+            name: offre3
+            widget: object
+            fields:
+              - label: Poste
+                name: poste
+                widget: string
+
+              - label: Description
+                name: description
+                widget: text
+
+              - label: Date
+                name: date
+                widget: string
+
+              - label: Contrat
+                name: contrat
+                widget: string
+
+  - name: temoignages
+    label: Témoignages
+    files:
+      - label: Témoignages
+        name: temoignages
+        file: "content/temoignages.json"
+        fields:
+          - label: Témoignage
+            name: temTest
+            widget: object
+            fields:
+              - label: Texte
+                name: texte
+                widget: text
+
+              - label: Nom
+                name: nom
+                widget: string
+
+              - label: Métier
+                name: metier
+                widget: string
+
+              - label: Image
+                name: img
+                widget: string
+
+  - name: actualites
+    label: Actualités
+    files:
+      - label: Actualités
+        name: actualites
+        file: "content/actualites.json"
+        fields:
+          - label: Actualité 1
+            name: actu1
+            widget: object
+            fields:
+              - label: Titre
+                name: titre
+                widget: string
+
+              - label: Sous-titre
+                name: sous-titre
+                widget: string
+
+              - label: Catégorie
+                name: categorie
+                widget: string
+
+              - label: Contenu
+                name: contenu
+                widget: text
+
+              - label: Date
+                name: date
+                widget: string
+
+              - label: Image
+                name: img
+                widget: string
+
+          - label: Actualité 2
+            name: actu2
+            widget: object
+            fields:
+              - label: Titre
+                name: titre
+                widget: string
+
+              - label: Sous-titre
+                name: sous-titre
+                widget: string
+
+              - label: Catégorie
+                name: categorie
+                widget: string
+
+              - label: Contenu
+                name: contenu
+                widget: text
+
+              - label: Date
+                name: date
+                widget: string
+
+              - label: Image
+                name: img
+                widget: string
+
+          - label: Actualité 3
+            name: actu3
+            widget: object
+            fields:
+              - label: Titre
+                name: titre
+                widget: string
+
+              - label: Sous-titre
+                name: sous-titre
+                widget: string
+
+              - label: Catégorie
+                name: categorie
+                widget: string
+
+              - label: Contenu
+                name: contenu
+                widget: text
+
+              - label: Date
+                name: date
+                widget: string
+
+              - label: Image
+                name: img
+                widget: string
+
+          - label: Actualité 4
+            name: actu4
+            widget: object
+            fields:
+              - label: Titre
+                name: titre
+                widget: string
+
+              - label: Sous-titre
+                name: sous-titre
+                widget: string
+
+              - label: Catégorie
+                name: categorie
+                widget: string
+
+              - label: Contenu
+                name: contenu
+                widget: text
+
+              - label: Date
+                name: date
+                widget: string
+
+              - label: Image
+                name: img
+                widget: string
