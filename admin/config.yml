@@ -1,0 +1,24 @@
+backend:
+  name: github
+  repo: The-Good-Review/CIGL
+  branch: main
+
+media_folder: "img/uploads"
+public_folder: "/img/uploads"
+
+collections:
+  - name: accueil
+
+    label: Accueil
+
+    files:
+      - label: Accueil
+
+        name: accueil
+
+        file: content/accueil.json
+
+        fields:
+          - { label: Titre, name: titre, widget: string }
+
+          - { label: Description, name: description, widget: text }
