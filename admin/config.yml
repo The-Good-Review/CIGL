@@ -73,71 +73,36 @@ collections:
             widget: number
 
   - name: emplois
-    label: Emplois
-    files:
-      - label: Offres d'emploi
-        name: emplois
-        file: "content/emplois.json"
-        fields:
-          - label: Offre 1
-            name: offre1
-            widget: object
-            fields:
-              - label: Poste
-                name: poste
-                widget: string
+    label: Offres d'emplois
+    label_singular: Offres d'emplois
+    description: Les offres d'emplois du CIGL
+    extension: json
+    format: json
+    folder: content/actualites
 
-              - label: Description
-                name: description
-                widget: text
+    create: true
 
-              - label: Date
-                name: date
-                widget: string
+    fields:
+      - name: poste
+        label: Poste
+        widget: string
 
-              - label: Contrat
-                name: contrat
-                widget: string
+      - name: description
+        label: Description
+        widget: richtext
 
-          - label: Offre 2
-            name: offre2
-            widget: object
-            fields:
-              - label: Poste
-                name: poste
-                widget: string
+      - name: date
+        label: Date de publication
+        widget: string
 
-              - label: Description
-                name: description
-                widget: text
+      - name: contrat
+        label: Contrat
+        widget: string
 
-              - label: Date
-                name: date
-                widget: string
+      - name: pageAssociee
+        label: Page Associée
+        widget: string
 
-              - label: Contrat
-                name: contrat
-                widget: string
-
-          - label: Offre 3
-            name: offre3
-            widget: object
-            fields:
-              - label: Poste
-                name: poste
-                widget: string
-
-              - label: Description
-                name: description
-                widget: text
-
-              - label: Date
-                name: date
-                widget: string
-
-              - label: Contrat
-                name: contrat
-                widget: string
 
   - name: temoignages
     label: Témoignages
