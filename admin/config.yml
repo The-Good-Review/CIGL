@@ -78,7 +78,7 @@ collections:
     description: Les offres d'emplois du CIGL
     extension: json
     format: json
-    folder: content/actualites
+    folder: content/emplois
 
     create: true
 
