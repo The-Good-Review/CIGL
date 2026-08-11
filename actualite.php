@@ -1,9 +1,20 @@
 <?php
 
-$actus = json_decode(
-    file_get_contents("content/actualites.json"),
-    true
-);
+$dossier = __DIR__ . '/content/actualites/';
+
+$actus = [];
+if (!is_dir($dossier)) {
+    return $actus;
+}
+$fichiers = glob($dossier . '*.json');
+foreach ($fichiers as $fichier) {
+    $contenu = file_get_contents($fichier);
+    $actualite = json_decode($contenu, true);
+    if ($actualite !== null) {
+        $actualite['_fichier'] = basename($fichier);
+        $actus[] = $actualite;
+    }
+}
 
 ?>
 <!DOCTYPE html>
@@ -225,15 +236,15 @@ $actus = json_decode(
                 <!-- ARTICLE LIST -->
                 <section class="articles" id="articlesList" aria-label="Liste des actualités">
 
-                    <article class="article-card" data-category="<?= $actus["actu1"]["categorie"] ?>"
-                        data-title="<?= $actus["actu1"]["titre"] ?>" data-tag="<?= $actus["actu1"]["titre"] ?>">
+                    <article class="article-card" data-category="<?= $actus[0]["categorie"] ?>"
+                        data-title="<?= $actus[0]["titre"] ?>" data-tag="<?= $actus[0]["titre"] ?>">
                         <div class="article-thumb" aria-hidden="true">
-                            <img src="<?= $actus["actu1"]["img"] ?>" alt="">
+                            <img src="<?= $actus[0]["img"] ?>" alt="">
                         </div>
                         <div class="article-body">
-                            <p class="article-eyebrow eyebrow-orange"><?= $actus["actu1"]["titre"] ?></p>
-                            <h3><?= $actus["actu1"]["sous-titre"] ?></h3>
-                            <p class="article-desc"><?= $actus["actu1"]["contenu"] ?></p>
+                            <p class="article-eyebrow eyebrow-orange"><?= $actus[0]["titre"] ?></p>
+                            <h3><?= $actus[0]["sous-titre"] ?></h3>
+                            <p class="article-desc"><?= $actus[0]["contenu"] ?></p>
                             <div class="article-meta">
                                 <span class="article-date">
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -243,22 +254,22 @@ $actus = json_decode(
                                         <line x1="8" y1="2" x2="8" y2="6" />
                                         <line x1="3" y1="10" x2="21" y2="10" />
                                     </svg>
-                                    <?= $actus["actu1"]["date"] ?>
+                                    <?= $actus[0]["date"] ?>
                                 </span>
-                                <span class="tag tag-blue"><?= $actus["actu1"]["titre"] ?></span>
+                                <span class="tag tag-blue"><?= $actus[0]["titre"] ?></span>
                             </div>
                         </div>
                     </article>
 
-                    <article class="article-card" data-category="<?= $actus["actu2"]["categorie"] ?>"
-                        data-title="<?= $actus["actu2"]["sous-titre"] ?>" data-tag="<?= $actus["actu2"]["titre"] ?>">
+                    <article class="article-card" data-category="<?= $actus[1]["categorie"] ?>"
+                        data-title="<?= $actus[1]["sous-titre"] ?>" data-tag="<?= $actus[1]["titre"] ?>">
                         <div class="article-thumb" aria-hidden="true">
-                            <img src="<?= $actus["actu2"]["img"] ?>" alt="">
+                            <img src="<?= $actus[1]["img"] ?>" alt="">
                         </div>
                         <div class="article-body">
-                            <p class="article-eyebrow eyebrow-green"><?= $actus["actu2"]["titre"] ?></p>
-                            <h3><?= $actus["actu2"]["sous-titre"] ?></h3>
-                            <p class="article-desc"><?= $actus["actu2"]["contenu"] ?>
+                            <p class="article-eyebrow eyebrow-green"><?= $actus[1]["titre"] ?></p>
+                            <h3><?= $actus[1]["sous-titre"] ?></h3>
+                            <p class="article-desc"><?= $actus[1]["contenu"] ?>
                             </p>
                             <div class="article-meta">
                                 <span class="article-date">
@@ -269,22 +280,22 @@ $actus = json_decode(
                                         <line x1="8" y1="2" x2="8" y2="6" />
                                         <line x1="3" y1="10" x2="21" y2="10" />
                                     </svg>
-                                    <?= $actus["actu2"]["date"] ?>
+                                    <?= $actus[1]["date"] ?>
                                 </span>
-                                <span class="tag tag-green"><?= $actus["actu2"]["titre"] ?></span>
+                                <span class="tag tag-green"><?= $actus[1]["titre"] ?></span>
                             </div>
                         </div>
                     </article>
 
-                    <article class="article-card" data-category="<?= $actus["actu4"]["categorie"] ?>" data-title=<?= $actus["actu4"]["sous-titre"] ?>
-                        data-tag="<?= $actus["actu4"]["titre"] ?>">
+                    <article class="article-card" data-category="<?= $actus[3]["categorie"] ?>" data-title=<?= $actus[3]["sous-titre"] ?>
+                        data-tag="<?= $actus[3]["titre"] ?>">
                         <div class="article-thumb" aria-hidden="true">
-                            <img src="<?= $actus["actu4"]["img"] ?>" alt="">
+                            <img src="<?= $actus[3]["img"] ?>" alt="">
                         </div>
                         <div class="article-body">
-                            <p class="article-eyebrow eyebrow-red"><?= $actus["actu4"]["titre"] ?></p>
-                            <h3><?= $actus["actu4"]["sous-titre"] ?></h3>
-                            <p class="article-desc"><?= $actus["actu4"]["contenu"] ?>
+                            <p class="article-eyebrow eyebrow-red"><?= $actus[3]["titre"] ?></p>
+                            <h3><?= $actus[3]["sous-titre"] ?></h3>
+                            <p class="article-desc"><?= $actus[3]["contenu"] ?>
                             </p>
                             <div class="article-meta">
                                 <span class="article-date">
@@ -295,22 +306,22 @@ $actus = json_decode(
                                         <line x1="8" y1="2" x2="8" y2="6" />
                                         <line x1="3" y1="10" x2="21" y2="10" />
                                     </svg>
-                                    <?= $actus["actu4"]["date"] ?>
+                                    <?= $actus[3]["date"] ?>
                                 </span>
-                                <span class="tag tag-orange"><?= $actus["actu4"]["titre"] ?></span>
+                                <span class="tag tag-orange"><?= $actus[3]["titre"] ?></span>
                             </div>
                         </div>
                     </article>
 
-                    <article class="article-card" data-category="<?= $actus["actu3"]["categorie"] ?>"
-                        data-title="<?= $actus["actu3"]["sous-titre"] ?>" data-tag="<?= $actus["actu3"]["titre"] ?>">
+                    <article class="article-card" data-category="<?= $actus[2]["categorie"] ?>"
+                        data-title="<?= $actus[2]["sous-titre"] ?>" data-tag="<?= $actus[2]["titre"] ?>">
                         <div class="article-thumb" aria-hidden="true">
-                            <img src="<?= $actus["actu3"]["img"] ?>" alt="">
+                            <img src="<?= $actus[2]["img"] ?>" alt="">
                         </div>
                         <div class="article-body">
-                            <p class="article-eyebrow eyebrow-teal"><?= $actus["actu3"]["titre"] ?></p>
-                            <h3><?= $actus["actu3"]["sous-titre"] ?></h3>
-                            <p class="article-desc"><?= $actus["actu3"]["contenu"] ?></p>
+                            <p class="article-eyebrow eyebrow-teal"><?= $actus[2]["titre"] ?></p>
+                            <h3><?= $actus[2]["sous-titre"] ?></h3>
+                            <p class="article-desc"><?= $actus[2]["contenu"] ?></p>
                             <div class="article-meta">
                                 <span class="article-date">
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -320,22 +331,22 @@ $actus = json_decode(
                                         <line x1="8" y1="2" x2="8" y2="6" />
                                         <line x1="3" y1="10" x2="21" y2="10" />
                                     </svg>
-                                    <?= $actus["actu3"]["date"] ?>
+                                    <?= $actus[2]["date"] ?>
                                 </span>
-                                <span class="tag tag-teal"><?= $actus["actu3"]["titre"] ?></span>
+                                <span class="tag tag-teal"><?= $actus[2]["titre"] ?></span>
                             </div>
                         </div>
                     </article>
 
-                    <article class="article-card" data-category="<?= $actus["actu5"]["categorie"] ?>" data-title=<?= $actus["actu5"]["sous-titre"] ?>
-                        data-tag="<?= $actus["actu5"]["titre"] ?>">
+                    <article class="article-card" data-category="<?= $actus[4]["categorie"] ?>" data-title=<?= $actus[4]["sous-titre"] ?>
+                        data-tag="<?= $actus[4]["titre"] ?>">
                         <div class="article-thumb" aria-hidden="true">
-                            <img src="<?= $actus["actu5"]["img"] ?>" alt="">
+                            <img src="<?= $actus[4]["img"] ?>" alt="">
                         </div>
                         <div class="article-body">
-                            <p class="article-eyebrow eyebrow-red"><?= $actus["actu5"]["titre"] ?></p>
-                            <h3><?= $actus["actu5"]["sous-titre"] ?></h3>
-                            <p class="article-desc"><?= $actus["actu5"]["contenu"] ?>
+                            <p class="article-eyebrow eyebrow-red"><?= $actus[4]["titre"] ?></p>
+                            <h3><?= $actus[4]["sous-titre"] ?></h3>
+                            <p class="article-desc"><?= $actus[4]["contenu"] ?>
                             </p>
                             <div class="article-meta">
                                 <span class="article-date">
@@ -346,9 +357,9 @@ $actus = json_decode(
                                         <line x1="8" y1="2" x2="8" y2="6" />
                                         <line x1="3" y1="10" x2="21" y2="10" />
                                     </svg>
-                                    <?= $actus["actu5"]["date"] ?>
+                                    <?= $actus[4]["date"] ?>
                                 </span>
-                                <span class="tag tag-orange"><?= $actus["actu5"]["titre"] ?></span>
+                                <span class="tag tag-orange"><?= $actus[4]["titre"] ?></span>
                             </div>
                         </div>
                     </article>

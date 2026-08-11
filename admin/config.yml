@@ -168,148 +168,32 @@ collections:
 
   - name: actualites
     label: Actualités
+    label_singular: Actualité
+    description: Gestion des actualités du CIGL
+
+    folder: content/actualites
+
     create: true
-    files:
-      - label: Actualités
-        name: actualites
-        file: "content/actualites.json"
-        fields:
-          - label: Actualité 1
-            name: actu1
-            widget: object
-            fields:
-              - label: Titre
-                name: titre
-                widget: string
 
-              - label: Sous-titre
-                name: sous-titre
-                widget: string
+    fields:
+      - name: titre
+        label: Titre
+        widget: string
 
-              - label: Catégorie
-                name: categorie
-                widget: string
+      - name: date
+        label: Date de publication
+        widget: datetime
+        date_format: DD/MM/YYYY
+        time_format: false
 
-              - label: Contenu
-                name: contenu
-                widget: text
+      - name: image
+        label: Image
+        widget: image
 
-              - label: Date
-                name: date
-                widget: string
+      - name: resume
+        label: Résumé
+        widget: text
 
-              - label: Image
-                name: img
-                widget: image
-
-          - label: Actualité 2
-            name: actu2
-            widget: object
-            fields:
-              - label: Titre
-                name: titre
-                widget: string
-
-              - label: Sous-titre
-                name: sous-titre
-                widget: string
-
-              - label: Catégorie
-                name: categorie
-                widget: string
-
-              - label: Contenu
-                name: contenu
-                widget: text
-
-              - label: Date
-                name: date
-                widget: string
-
-              - label: Image
-                name: img
-                widget: image
-
-          - label: Actualité 3
-            name: actu3
-            widget: object
-            fields:
-              - label: Titre
-                name: titre
-                widget: string
-
-              - label: Sous-titre
-                name: sous-titre
-                widget: string
-
-              - label: Catégorie
-                name: categorie
-                widget: string
-
-              - label: Contenu
-                name: contenu
-                widget: text
-
-              - label: Date
-                name: date
-                widget: string
-
-              - label: Image
-                name: img
-                widget: image
-
-          - label: Actualité 4
-            name: actu4
-            widget: object
-            fields:
-              - label: Titre
-                name: titre
-                widget: string
-
-              - label: Sous-titre
-                name: sous-titre
-                widget: string
-
-              - label: Catégorie
-                name: categorie
-                widget: string
-
-              - label: Contenu
-                name: contenu
-                widget: text
-
-              - label: Date
-                name: date
-                widget: string
-
-              - label: Image
-                name: img
-                widget: image
-
-          - label: Actualité 5
-            name: actu5
-            widget: object
-            fields:
-              - label: Titre
-                name: titre
-                widget: string
-
-              - label: Sous-titre
-                name: sous-titre
-                widget: string
-
-              - label: Catégorie
-                name: categorie
-                widget: string
-
-              - label: Contenu
-                name: contenu
-                widget: text
-
-              - label: Date
-                name: date
-                widget: string
-
-              - label: Image
-                name: img
-                widget: image
+      - name: contenu
+        label: Contenu
+        widget: richtext
