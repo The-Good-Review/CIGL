@@ -180,20 +180,22 @@ collections:
         label: Titre
         widget: string
 
-      - name: date
-        label: Date de publication
-        widget: datetime
-        date_format: DD/MM/YYYY
-        time_format: false
+      - name: sous-titre
+        label: Sous-titre
+        widget: string
 
-      - name: image
-        label: Image
-        widget: image
-
-      - name: resume
-        label: Résumé
-        widget: text
+      - name: categorie
+        label: Catégorie
+        widget: string
 
       - name: contenu
         label: Contenu
         widget: richtext
+
+      - name: date
+        label: Date de publication
+        widget: string
+
+      - name: img
+        label: Image
+        widget: image
