@@ -4,5 +4,5 @@
     "categorie": "evenements",
     "contenu": "Notre crèche réouvre ses portes ce lundi 7 septembre 2026. Bonne rentrée à tous.",
     "date": "7 septembre 2026",
-    "img": "../uploads/creche.jpg"
+    "img": "/uploads/creche.jpg"
 }

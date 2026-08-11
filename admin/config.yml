@@ -170,7 +170,8 @@ collections:
     label: Actualités
     label_singular: Actualité
     description: Gestion des actualités du CIGL
-
+    extension: json
+    format: json
     folder: content/actualites
 
     create: true

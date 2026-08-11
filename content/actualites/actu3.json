@@ -4,5 +4,5 @@
     "categorie": "services",
     "contenu": "Notre atelier vélo rouvre ses portes dès le 2 mai !",
     "date": "2 mai 2025",
-    "img": "../uploads/velo.jpg"
+    "img": "/uploads/velo.jpg"
 }
