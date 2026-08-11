@@ -187,7 +187,12 @@ collections:
 
       - name: categorie
         label: Catégorie
-        widget: string
+        widget: select
+        options:
+          - vie-associative
+          - projets
+          - services
+          - evenements
 
       - name: contenu
         label: Contenu
