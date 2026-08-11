@@ -236,133 +236,41 @@ foreach ($fichiers as $fichier) {
                 <!-- ARTICLE LIST -->
                 <section class="articles" id="articlesList" aria-label="Liste des actualités">
 
-                    <article class="article-card" data-category="<?= $actus[0]["categorie"] ?>"
-                        data-title="<?= $actus[0]["titre"] ?>" data-tag="<?= $actus[0]["titre"] ?>">
-                        <div class="article-thumb" aria-hidden="true">
-                            <img src="<?= $actus[0]["img"] ?>" alt="">
-                        </div>
-                        <div class="article-body">
-                            <p class="article-eyebrow eyebrow-orange"><?= $actus[0]["titre"] ?></p>
-                            <h3><?= $actus[0]["sous-titre"] ?></h3>
-                            <p class="article-desc"><?= $actus[0]["contenu"] ?></p>
-                            <div class="article-meta">
-                                <span class="article-date">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2">
-                                        <rect x="3" y="4" width="18" height="18" rx="2" />
-                                        <line x1="16" y1="2" x2="16" y2="6" />
-                                        <line x1="8" y1="2" x2="8" y2="6" />
-                                        <line x1="3" y1="10" x2="21" y2="10" />
-                                    </svg>
-                                    <?= $actus[0]["date"] ?>
-                                </span>
-                                <span class="tag tag-blue"><?= $actus[0]["titre"] ?></span>
-                            </div>
-                        </div>
-                    </article>
+                    <?php
 
-                    <article class="article-card" data-category="<?= $actus[1]["categorie"] ?>"
-                        data-title="<?= $actus[1]["sous-titre"] ?>" data-tag="<?= $actus[1]["titre"] ?>">
-                        <div class="article-thumb" aria-hidden="true">
-                            <img src="<?= $actus[1]["img"] ?>" alt="">
-                        </div>
-                        <div class="article-body">
-                            <p class="article-eyebrow eyebrow-green"><?= $actus[1]["titre"] ?></p>
-                            <h3><?= $actus[1]["sous-titre"] ?></h3>
-                            <p class="article-desc"><?= $actus[1]["contenu"] ?>
-                            </p>
-                            <div class="article-meta">
-                                <span class="article-date">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2">
-                                        <rect x="3" y="4" width="18" height="18" rx="2" />
-                                        <line x1="16" y1="2" x2="16" y2="6" />
-                                        <line x1="8" y1="2" x2="8" y2="6" />
-                                        <line x1="3" y1="10" x2="21" y2="10" />
-                                    </svg>
-                                    <?= $actus[1]["date"] ?>
-                                </span>
-                                <span class="tag tag-green"><?= $actus[1]["titre"] ?></span>
-                            </div>
-                        </div>
-                    </article>
+                    $colors = Array('orange', 'green', 'teal', 'red');
+                    $tagColors = Array('tag-blue', 'tag-green', 'tag-teal', 'tag-orange');
 
-                    <article class="article-card" data-category="<?= $actus[3]["categorie"] ?>" data-title=<?= $actus[3]["sous-titre"] ?>
-                        data-tag="<?= $actus[3]["titre"] ?>">
-                        <div class="article-thumb" aria-hidden="true">
-                            <img src="<?= $actus[3]["img"] ?>" alt="">
-                        </div>
-                        <div class="article-body">
-                            <p class="article-eyebrow eyebrow-red"><?= $actus[3]["titre"] ?></p>
-                            <h3><?= $actus[3]["sous-titre"] ?></h3>
-                            <p class="article-desc"><?= $actus[3]["contenu"] ?>
-                            </p>
-                            <div class="article-meta">
-                                <span class="article-date">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2">
-                                        <rect x="3" y="4" width="18" height="18" rx="2" />
-                                        <line x1="16" y1="2" x2="16" y2="6" />
-                                        <line x1="8" y1="2" x2="8" y2="6" />
-                                        <line x1="3" y1="10" x2="21" y2="10" />
-                                    </svg>
-                                    <?= $actus[3]["date"] ?>
-                                </span>
-                                <span class="tag tag-orange"><?= $actus[3]["titre"] ?></span>
-                            </div>
-                        </div>
-                    </article>
+                    for ($i=0; $i < sizeof($actus); $i++) { 
+                        echo(
+                            "<article class='article-card' data-category='".$actus[$i]['categorie']."'
+                                data-title='".$actus[$i]['titre']."' data-tag='".$actus[$i]['titre']."'>
+                                <div class='article-thumb' aria-hidden='true'>
+                                    <img src='".$actus[$i]['img']."' alt=''>
+                                </div>
+                                <div class='article-body'>
+                                    <p class='article-eyebrow eyebrow-".$colors[array_rand($colors)]."'>".$actus[$i]['titre']."</p>
+                                    <h3>".$actus[$i]['sous-titre']."</h3>
+                                    <p class='article-desc'>".$actus[$i]['contenu']."</p>
+                                    <div class='article-meta'>
+                                        <span class='article-date'>
+                                            <svg width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor'
+                                                stroke-width='2'>
+                                                <rect x='3' y='4' width='18' height='18' rx='2' />
+                                                <line x1='16' y1='2' x2='16' y2='6' />
+                                                <line x1='8' y1='2' x2='8' y2='6' />
+                                                <line x1='3' y1='10' x2='21' y2='10' />
+                                            </svg>
+                                            ".$actus[$i]['date']."
+                                        </span>
+                                        <span class='tag ".$tagColors[array_rand($tagColors)]."'>".$actus[$i]['titre']."</span>
+                                    </div>
+                                </div>
+                            </article>"
+                        );
+                    }
 
-                    <article class="article-card" data-category="<?= $actus[2]["categorie"] ?>"
-                        data-title="<?= $actus[2]["sous-titre"] ?>" data-tag="<?= $actus[2]["titre"] ?>">
-                        <div class="article-thumb" aria-hidden="true">
-                            <img src="<?= $actus[2]["img"] ?>" alt="">
-                        </div>
-                        <div class="article-body">
-                            <p class="article-eyebrow eyebrow-teal"><?= $actus[2]["titre"] ?></p>
-                            <h3><?= $actus[2]["sous-titre"] ?></h3>
-                            <p class="article-desc"><?= $actus[2]["contenu"] ?></p>
-                            <div class="article-meta">
-                                <span class="article-date">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2">
-                                        <rect x="3" y="4" width="18" height="18" rx="2" />
-                                        <line x1="16" y1="2" x2="16" y2="6" />
-                                        <line x1="8" y1="2" x2="8" y2="6" />
-                                        <line x1="3" y1="10" x2="21" y2="10" />
-                                    </svg>
-                                    <?= $actus[2]["date"] ?>
-                                </span>
-                                <span class="tag tag-teal"><?= $actus[2]["titre"] ?></span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="article-card" data-category="<?= $actus[4]["categorie"] ?>" data-title=<?= $actus[4]["sous-titre"] ?>
-                        data-tag="<?= $actus[4]["titre"] ?>">
-                        <div class="article-thumb" aria-hidden="true">
-                            <img src="<?= $actus[4]["img"] ?>" alt="">
-                        </div>
-                        <div class="article-body">
-                            <p class="article-eyebrow eyebrow-red"><?= $actus[4]["titre"] ?></p>
-                            <h3><?= $actus[4]["sous-titre"] ?></h3>
-                            <p class="article-desc"><?= $actus[4]["contenu"] ?>
-                            </p>
-                            <div class="article-meta">
-                                <span class="article-date">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2">
-                                        <rect x="3" y="4" width="18" height="18" rx="2" />
-                                        <line x1="16" y1="2" x2="16" y2="6" />
-                                        <line x1="8" y1="2" x2="8" y2="6" />
-                                        <line x1="3" y1="10" x2="21" y2="10" />
-                                    </svg>
-                                    <?= $actus[4]["date"] ?>
-                                </span>
-                                <span class="tag tag-orange"><?= $actus[4]["titre"] ?></span>
-                            </div>
-                        </div>
-                    </article>
+                    ?>
 
                     <p class="no-results" id="noResults" hidden>Aucune actualité ne correspond à votre recherche.</p>
                 </section>
