@@ -1,7 +1,7 @@
 <?php
 
 $poste = json_decode(
-    file_get_contents("content/postes/".$_GET["poste"]),
+    file_get_contents("content/postes/".$_GET["poste"].".json"),
     true
 );
 
