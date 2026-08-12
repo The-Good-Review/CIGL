@@ -1,7 +1,7 @@
 {
-    "poste": "Mécanicien vélo (H/F)",
-    "description": "Vous réalisez l'entretien, la réparation et la préparation des vélos tout en conseillant les utilisateurs sur leur utilisation et leur maintenance.",
-    "date": "24 juillet 2026",
-    "contrat": "CDD de 6 mois",
-    "pageAssociee": "poste1.json"
+  "poste": "Mécanicien vélo (H/F)",
+  "description": "Vous réalisez l'entretien, la réparation et la préparation des vélos tout en conseillant les utilisateurs sur leur utilisation et leur maintenance.",
+  "date": "24 juillet 2026",
+  "contrat": "CDD de 6 mois",
+  "pageAssociee": "poste1"
 }
