@@ -170,3 +170,42 @@ collections:
       - name: img
         label: Image
         widget: image
+
+  - name: postes
+    label: Fiches de poste
+    label_singular: Fiche de poste
+    description: Gestion des offres d'emploi du CIGL
+
+    folder: /content/postes
+    create: true
+    extension: json
+    format: json
+
+    fields:      
+      - name: presentation
+        label: Présentation du poste
+        widget: text
+
+      - name: missions
+        label: Missions
+        widget: list
+        field:
+          name: mission
+          label: Mission
+          widget: string
+
+      - name: profil
+        label: Profil recherché
+        widget: list
+        field:
+          name: profil
+          label: Profil
+          widget: string
+
+      - name: conditions
+        label: Conditions
+        widget: list
+        field:
+          name: condition
+          label: Condition
+          widget: string

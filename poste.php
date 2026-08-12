@@ -1,20 +1,9 @@
 <?php
 
-$dossier = __DIR__ . '/content/emplois/';
-
-$emplois = [];
-if (!is_dir($dossier)) {
-    return $emplois;
-}
-$fichiers = glob($dossier . '*.json');
-foreach ($fichiers as $fichier) {
-    $contenu = file_get_contents($fichier);
-    $emploi = json_decode($contenu, true);
-    if ($emploi !== null) {
-        $emploi['_fichier'] = basename($fichier);
-        $emplois[] = $emploi;
-    }
-}
+$poste = json_decode(
+    file_get_contents("content/postes/".$_GET["poste"]),
+    true
+);
 
 ?>
 <!DOCTYPE html>
@@ -23,9 +12,9 @@ foreach ($fichiers as $fichier) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ressources - CIGL ESCH ASBL</title>
-    <link rel="stylesheet" href="style/style.css">
-    <link rel="icon" type="image/png" href="img/logo_fenetre.png">
+    <title>Candidater - CIGL ESCH ASBL</title>
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="icon" type="image/png" href="../img/logo_fenetre.png">
 </head>
 
 <body>
@@ -35,7 +24,7 @@ foreach ($fichiers as $fichier) {
         }
     </style>
     <header class="navbar" id="navbar">
-        <a href="index.php"><img id="logo" src="img/siteweb_logo_paysage-2.png" alt="Logo CIGL ESCH"></a>
+        <a href="../index.php"><img id="logo" src="../img/siteweb_logo_paysage-2.png" alt="Logo CIGL ESCH"></a>
         <label class="burger" for="burger">
             <input type="checkbox" id="burger">
             <span></span>
@@ -46,15 +35,15 @@ foreach ($fichiers as $fichier) {
             <button type="button" class="nav-back vert" id="navBack">
                 <span aria-hidden="true">‹</span> Retour
             </button>
-            <div class="nav-item vert"><a href="index.php#">ACCUEIL</a>
+            <div class="nav-item vert"><a href="../index.php#">ACCUEIL</a>
             </div>
-            <div class="nav-item vert"><a href="ciglbref.php">QUI SOMMES NOUS</a></div>
-            <div class="nav-item vert"><a href="service.php">NOS SERVICES</a>
+            <div class="nav-item vert"><a href="../ciglbref.php">QUI SOMMES NOUS</a></div>
+            <div class="nav-item vert"><a href="../service.php">NOS SERVICES</a>
                 <button type="button" class="submenu-toggle vert" aria-label="Ouvrir le sous-menu Services"
                     aria-expanded="false">›</button>
                 <div class="dropdown">
                     <div class="dd-item has-sub">
-                        <a href="pagesServices/famille/famille.php">Famille & Enfants</a>
+                        <a href="../pagesServices/famille/famille.php">Famille & Enfants</a>
                         <button type="button" class="submenu-toggle vert"
                             aria-label="Ouvrir le sous-menu Enfance et jeunesse" aria-expanded="false">›</button>
                         <div class="submenu">
@@ -72,7 +61,7 @@ foreach ($fichiers as $fichier) {
                         </div>
                     </div>
                     <div class="dd-item has-sub">
-                        <a href="pagesServices/mobilite/mobilite.php">Mobilité</a>
+                        <a href="../pagesServices/mobilite/mobilite.php">Mobilité</a>
                         <button type="button" class="submenu-toggle vert" aria-label="Ouvrir le sous-menu Mobilité"
                             aria-expanded="false">›</button>
                         <div class="submenu">
@@ -82,161 +71,112 @@ foreach ($fichiers as $fichier) {
                         </div>
                     </div>
                     <div class="dd-item has-sub">
-                        <a href="pagesServices/jardin/jardin.php">Jardin & Environnement</a>
+                        <a href="../pagesServices/jardin/jardin.php">Jardin & Environnement</a>
                         <button type="button" class="submenu-toggle vert"
                             aria-label="Ouvrir le sous-menu Nature, création et citoyenneté"
                             aria-expanded="false">›</button>
                         <div class="submenu">
                             <ul>
-                                <li><a href="pagesServices/jardin/deg.php">Den Escher Geméisguart</a></li>
-                                <li><a href="pagesServices/jardin/kal.php">Kalendula</a></li>
-                                <li><a href="pagesServices/jardin/lag.php">Léieren am gaart</a></li>
+                                <li><a href="../pagesServices/jardin/deg.php">Den Escher Geméisguart</a></li>
+                                <li><a href="../pagesServices/jardin/kal.php">Kalendula</a></li>
+                                <li><a href="../pagesServices/jardin/lag.php">Léieren am gaart</a></li>
                                 <li><a href="https://interreg-gr.eu/project/integravert-fr-2/"
                                         target="_blank">Integravert</a></li>
-                                <li><a href="pagesServices/jardin/rec.php">RECUP</a></li>
-                                <li><a href="pagesServices/jardin/legumes.php">Vente de Légumes</a></li>
+                                <li><a href="../pagesServices/jardin/rec.php">RECUP</a></li>
+                                <li><a href="../pagesServices/jardin/legumes.php">Vente de Légumes</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="dd-item has-sub">
-                        <a href="pagesServices/maison/maison.php">Maison et Personne</a>
+                        <a href="../pagesServices/maison/maison.php">Maison et Personne</a>
                         <button type="button" class="submenu-toggle vert"
                             aria-label="Ouvrir le sous-menu Service de proximité" aria-expanded="false">›</button>
                         <div class="submenu">
                             <ul>
-                                <li><a href="pagesServices/maison/personne.php">Service à la personne</a></li>
-                                <li><a href="pagesServices/maison/den.php">Den Handkesselchen</a></li>
+                                <li><a href="../pagesServices/maison/personne.php">Service à la personne</a></li>
+                                <li><a href="../pagesServices/maison/den.php">Den Handkesselchen</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="dd-item has-sub">
-                        <a href="pagesServices/loisir/loisir.php">Loisir & Tourisme</a>
+                        <a href="../pagesServices/loisir/loisir.php">Loisir & Tourisme</a>
                         <button type="button" class="submenu-toggle vert" aria-label="Ouvrir le sous-menu Tourisme"
                             aria-expanded="false">›</button>
                         <div class="submenu">
                             <ul>
-                                <li><a href="pagesServices/loisir/stuff.php">Brasserie Camping Stuff</a>
+                                <li><a href="../pagesServices/loisir/stuff.php">Brasserie Camping Stuff</a>
                                 </li>
-                                <li><a href="pagesServices/loisir/rosati.php">Maison Rosati</a></li>
+                                <li><a href="../pagesServices/loisir/rosati.php">Maison Rosati</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="dd-item has-sub">
-                        <a href="pagesServices/amenagement/amenagement.php">Aménagement & Travaux</a>
+                        <a href="../pagesServices/amenagement/amenagement.php">Aménagement & Travaux</a>
                         <button type="button" class="submenu-toggle vert"
                             aria-label="Ouvrir le sous-menu Aménagement et construction"
                             aria-expanded="false">›</button>
                         <div class="submenu">
                             <ul>
-                                <li><a href="pagesServices/amenagement/entretien.php">Entretien des espaces
+                                <li><a href="../pagesServices/amenagement/entretien.php">Entretien des espaces
                                         verts</a></li>
-                                <li><a href="pagesServices/amenagement/construction.php">Construction Durable</a>
+                                <li><a href="../pagesServices/amenagement/construction.php">Construction Durable</a>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="nav-item vert"><a href="accompagnement.php">ACCOMPAGNEMENT</a></div>
-            <div class="nav-item vert"><a href="emploi.php">emploiS</a></div>
-            <div class="nav-item vert"><a href="ressources.php">RESSOURCES</a></div>
-            <div class="nav-item vert"><a href="contact.php">CONTACT</a></div>
+            <div class="nav-item vert"><a href="../accompagnement.php">ACCOMPAGNEMENT</a></div>
+            <div class="nav-item vert"><a href="../actualite.php">ACTUALITES</a></div>
+            <div class="nav-item vert"><a href="../ressources.php">RESSOURCES</a></div>
+            <div class="nav-item vert"><a href="../contact.php">CONTACT</a></div>
         </nav>
     </header>
 
-    <div class="imageAcceuil">
-        <div>
-            <h2>Ressources</h2>
-            <h1>Ressources utiles <br> à votre parcours</h1>
-            <h3>Retrouvez ici nos offres d'emploi, formulaires, <br> rapports publications et autres documents utiles.
-            </h3>
-        </div>
-        <img src="img/accueil-ressource.jpg" alt="">
-    </div>
-
     <div class="page">
-        <p class="eyebrow">Documents</p>
-        <div class="documents">
-            <div class="services-grid">
-                <a class="services-link"
-                    href="https://www.ciglesch.lu/wp-content/uploads/2026/07/CIGLESCH-RAPPORTDACTIVITES-2025.pdf"
-                    target="_blank">
-                    <div class="services-cards">
-                        <img src="img/icons/services/download-bleu.png">
-                        <p>Rapport d'activité 2025</p>
-                        <p class="fleche bleu">➞</p>
-                    </div>
-                </a>
-                <a class="services-link"
-                    href="https://www.ciglesch.lu/wp-content/uploads/2025/07/CIGLESCH-RAPPORTDACTIVITES-2024.pdf"
-                    target="_blank">
-                    <div class="services-cards">
-                        <img src="img/icons/services/download-orange.png">
-                        <p>Rapport d'activité 2024</p>
-                        <p class="fleche orange">➞</p>
-                    </div>
-                </a>
-                <a class="services-link" href="documents/Conseil_administration.pdf" target="_blank">
-                    <div class="services-cards">
-                        <img src="img/icons/services/download-vert.png">
-                        <p>Le conseil d'administration</p>
-                        <p class="fleche vert">➞</p>
-                    </div>
-                </a>
-                <a class="services-link"
-                    href="https://www.ciglesch.lu/wp-content/uploads/2024/12/PS15_Politique_protection_DCP_CIGLEsch_v00_04.pdf"
-                    target="_blank">
-                    <div class="services-cards">
-                        <img src="img/icons/services/download-rouge.png">
-                        <p>Notre politique de confidentialité</p>
-                        <p class="fleche rouge">➞</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-        <br><br><br>
-        <p class="eyebrow">Postes vacants</p>
+
+        <p class="eyebrow">Le poste</p>
         <div class="postes">
-            <section class="articles" id="jobList" aria-label="Liste des postes vacants">
-                <?php
-
-                $tagColors = Array('tag-blue', 'tag-green', 'tag-teal', 'tag-orange');
-
-                for ($i=0; $i < sizeof($emplois); $i++) { 
-                    echo("
-                        <a style='text-decoration: none;' class='preslink' href='poste.php?poste=".$emplois[$i]['pageAssociee']."'>
-                            <article class='article-card'>
-                                <div class='article-body'>
-                                    <h3>".$emplois[$i]['poste']."</h3>
-                                    <p class='article-desc'>".$emplois[$i]['description']." 
-                                    </p>
-                                    <div class='article-meta'>
-                                        <span class='article-date'>
-                                            <svg width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor'
-                                                stroke-width='2'>
-                                                <rect x='3' y='4' width='18' height='18' rx='2' />
-                                                <line x1='16' y1='2' x2='16' y2='6' />
-                                                <line x1='8' y1='2' x2='8' y2='6' />
-                                                <line x1='3' y1='10' x2='21' y2='10' />
-                                            </svg>
-                                            ".$emplois[$i]['date']."
-                                        </span>
-                                        <span class='tag ".$tagColors[array_rand($tagColors)]."'>".$emplois[$i]['contrat']."</span>
-                                    </div>
-                                </div>
-                                ➜
-                            </article>
-                        </a>
-                    ");
-                }
-                ?>
-            </section>
+            <p class="presP">
+                <?= $poste["presentation"] ?>
+            </p>
+            <br>
+            <p class="presP"><b>Vos missions :</b>
+                <ul class="presP">
+                    <?php
+                    foreach ($poste["missions"] as $mission) {
+                        echo("<li>".$mission."</li>");
+                    }
+                    ?>
+                </ul>
+            </p>
+            <br>
+            <p class="presP"><b>Profil recherché :</b>
+                <ul class="presP">
+                    <?php
+                    foreach ($poste["profil"] as $profil) {
+                        echo("<li>".$profil."</li>");
+                    }
+                    ?>
+                </ul>
+            </p>
+            <br>
+            <p class="presP"><b>Condition :</b>
+                <ul class="presP">
+                    <?php
+                    foreach ($poste["conditions"] as $condition) {
+                        echo("<li>".$condition."</li>");
+                    }
+                    ?>
+                </ul>
+            </p>
         </div>
 
         <br><br><br><br>
 
-        <p class="eyebrow">Candidature spontanée</p>
-        <form action="php/mail.php" method="POST" enctype="multipart/form-data" id="candidature-form">
+        <p class="eyebrow">Votre profil</p>
+        <form action="../php/mail3.php" method="POST" enctype="multipart/form-data" id="candidature-form">
+            <input type="hidden" name="poste" value="Assistant Administratif">
             <fieldset>
                 <div class="section-head">
                     <span class="section-num">01</span>
@@ -269,43 +209,6 @@ foreach ($fichiers as $fichier) {
             <fieldset>
                 <div class="section-head">
                     <span class="section-num">02</span>
-                    <legend class="section-title">Le poste recherché</legend>
-                </div>
-                <div class="field-grid">
-                    <div class="field">
-                        <label for="domaine">Domaine souhaité</label>
-                        <select id="domaine" name="domaine" required>
-                            <option value="">Sélectionner…</option>
-                            <option>Commercial & vente</option>
-                            <option>Marketing & communication</option>
-                            <option>Technique & production</option>
-                            <option>Informatique & digital</option>
-                            <option>Administration & gestion</option>
-                            <option>Ressources humaines</option>
-                            <option>Autre</option>
-                        </select>
-                    </div>
-                    <div class="field">
-                        <label for="contrat">Type de contrat</label>
-                        <select id="contrat" name="contrat" required>
-                            <option value="">Sélectionner…</option>
-                            <option>CDI</option>
-                            <option>CDD</option>
-                            <option>Stage</option>
-                            <option>Apprentissage</option>
-                            <option>Freelance</option>
-                        </select>
-                    </div>
-                    <div class="field full">
-                        <label for="disponibilite">Disponibilité <span class="opt">(optionnel)</span></label>
-                        <input type="date" id="disponibilite" name="disponibilite">
-                    </div>
-                </div>
-            </fieldset>
-
-            <fieldset>
-                <div class="section-head">
-                    <span class="section-num">03</span>
                     <legend class="section-title">Votre parcours</legend>
                 </div>
                 <div class="field-grid">
@@ -319,7 +222,7 @@ foreach ($fichiers as $fichier) {
 
             <fieldset>
                 <div class="section-head">
-                    <span class="section-num">04</span>
+                    <span class="section-num">03</span>
                     <legend class="section-title">Quelque chose à ajouter</legend>
                 </div>
                 <div class="field-grid">
@@ -333,7 +236,7 @@ foreach ($fichiers as $fichier) {
 
             <fieldset>
                 <div class="section-head">
-                    <span class="section-num">05</span>
+                    <span class="section-num">04</span>
                     <legend class="section-title">Pièces jointes</legend>
                 </div>
                 <div class="field-grid">
@@ -373,32 +276,32 @@ foreach ($fichiers as $fichier) {
     </div>
 
     <button id="btn" class="Btn">
-        <span class="text"><img src="img/icons/medias/facebook.png" alt="facebook"></span>
+        <span class="text"><img src="../img/icons/medias/facebook.png" alt="facebook"></span>
         <a class="media" href="https://www.facebook.com/CIGLEsch/" target="_blank"><img
-                src="img/icons/medias/facebook.png" alt="facebook"></a>
+                src="../img/icons/medias/facebook.png" alt="facebook"></a>
         <a class="media" href="https://www.linkedin.com/company/ciglesch" target="_blank"><img
-                src="img/icons/medias/linkedin.png" alt="linkedin"></a>
+                src="../img/icons/medias/linkedin.png" alt="linkedin"></a>
         <a class="media" href="https://www.youtube.com/@ciglesch1101" target="_blank"><img
-                src="img/icons/medias/youtube.png" alt="youtube"></a>
-        <a class="media" href="https://www.instagram.com/ciglesch" target="_blank"><img src="img/icons/medias/insta.png"
+                src="../img/icons/medias/youtube.png" alt="youtube"></a>
+        <a class="media" href="https://www.instagram.com/ciglesch" target="_blank"><img src="../img/icons/medias/insta.png"
                 alt="instagram"></a>
     </button>
 
-        <div>
+    <div>
         <div id="partenaires" class="grey-back">
             <div class="soutien">
                 <b>Avec le soutien de</b>
                 <h3>Partenaires institutionnels</h3>
             </div>
             <div id="top-invest">
-                <img src="img/logo/travail.png" alt="logo ministère du travail">
-                <img src="img/logo/esch.png" alt="logo ville d'esch">
+                <img src="../img/logo/travail.png" alt="logo ministère du travail">
+                <img src="../img/logo/esch.png" alt="logo ville d'esch">
             </div>
             <div class="vertical-line"></div>
-            <img src="img/logo/education.png" alt="logo ministère de l'éducation">
-            <img src="img/logo/environnement.png" alt="logo ministère de l'environnement">
-            <img src="img/logo/agriculture.png" alt="logo ministère de l'agriculture">
-            <img src="img/logo/oeuvreNationale.png" alt="logo oeuvre nationale">
+            <img src="../img/logo/education.png" alt="logo ministère de l'éducation">
+            <img src="../img/logo/environnement.png" alt="logo ministère de l'environnement">
+            <img src="../img/logo/agriculture.png" alt="logo ministère de l'agriculture">
+            <img src="../img/logo/oeuvreNationale.png" alt="logo oeuvre nationale">
         </div>
         <footer>
             <div class="adress">
@@ -414,6 +317,6 @@ foreach ($fichiers as $fichier) {
             </div>
         </footer>
     </div>
-    <script src="script/script.js"></script>
-    <script src="script/scriptRessources.js"></script>
+    <script src="../script/script.js"></script>
+    <script src="../script/scriptRessources.js"></script>
 </body>
