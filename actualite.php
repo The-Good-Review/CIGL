@@ -249,7 +249,7 @@ foreach ($fichiers as $fichier) {
                                     <img src='".$actus[$i]['img']."' alt=''>
                                 </div>
                                 <div class='article-body'>
-                                    <p class='article-eyebrow eyebrow-".$colors[array_rand($colors)]."'>".$actus[$i]['titre']."</p>
+                                    <p class='article-eyebrow eyebrow-".$colors[$i%4]."'>".$actus[$i]['titre']."</p>
                                     <h3>".$actus[$i]['sous-titre']."</h3>
                                     <p class='article-desc'>".$actus[$i]['contenu']."</p>
                                     <div class='article-meta'>
@@ -263,7 +263,7 @@ foreach ($fichiers as $fichier) {
                                             </svg>
                                             ".$actus[$i]['date']."
                                         </span>
-                                        <span class='tag ".$tagColors[array_rand($tagColors)]."'>".$actus[$i]['titre']."</span>
+                                        <span class='tag ".$tagColors[$i%4]."'>".$actus[$i]['titre']."</span>
                                     </div>
                                 </div>
                             </article>"

@@ -138,7 +138,7 @@ foreach ($fichiers as $fichier) {
                 </div>
             </div>
             <div class="nav-item vert"><a href="accompagnement.php">ACCOMPAGNEMENT</a></div>
-            <div class="nav-item vert"><a href="emploi.php">emploiS</a></div>
+            <div class="nav-item vert"><a href="actualite.php">ACTUALITES</a></div>
             <div class="nav-item vert"><a href="ressources.php">RESSOURCES</a></div>
             <div class="nav-item vert"><a href="contact.php">CONTACT</a></div>
         </nav>
@@ -221,7 +221,7 @@ foreach ($fichiers as $fichier) {
                                             </svg>
                                             ".$emplois[$i]['date']."
                                         </span>
-                                        <span class='tag ".$tagColors[array_rand($tagColors)]."'>".$emplois[$i]['contrat']."</span>
+                                        <span class='tag ".$tagColors[$i%4]."'>".$emplois[$i]['contrat']."</span>
                                     </div>
                                 </div>
                                 ➜

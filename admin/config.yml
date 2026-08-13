@@ -210,7 +210,7 @@ collections:
         widget: image
 
   - name: famille
-    label: Famille
+    label: Actualité Famille
     folder: /content/actualitesFamille/famille
     create: true
     extension: json
@@ -239,7 +239,7 @@ collections:
 
 
   - name: mobilite
-    label: Mobilité
+    label: Actualité Mobilité
     folder: /content/actualitesFamille/mobilite
     create: true
     extension: json
@@ -268,7 +268,7 @@ collections:
 
 
   - name: jardin
-    label: Jardin
+    label: Actualité Jardin
     folder: /content/actualitesFamille/jardin
     create: true
     extension: json
@@ -297,7 +297,7 @@ collections:
 
 
   - name: maison
-    label: Maison
+    label: Actualité Maison
     folder: /content/actualitesFamille/maison
     create: true
     extension: json
@@ -326,7 +326,7 @@ collections:
 
 
   - name: loisir
-    label: Loisir
+    label: Actualité Loisir
     folder: /content/actualitesFamille/loisir
     create: true
     extension: json
@@ -355,7 +355,7 @@ collections:
 
 
   - name: amenagement
-    label: Aménagement
+    label: Actualité Aménagement
     folder: /content/actualitesFamille/amenagement
     create: true
     extension: json

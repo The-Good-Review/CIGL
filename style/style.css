@@ -962,6 +962,10 @@ footer a:hover {
 }
 
 /* FAMILLE */
+.actuFamille{
+    margin: 3% 20%;
+}
+
 .infos-service-container {
     background-color: white;
     display: flex;
@@ -2367,6 +2371,10 @@ button[type="submit"]:focus-visible {
 }
 
 .article-card:hover {
+    background: #fafbfb;
+}
+
+.actuFamille .article-card{
     background: #fafbfb;
 }
 
