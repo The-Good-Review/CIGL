@@ -1,6 +1,6 @@
 <?php
 
-$dossier = __DIR__ . '/content/actualitesFamille/amenagement';
+$dossier = __DIR__ . '/../../content/actualitesFamille/amenagement/';
 
 $actus = [];
 if (!is_dir($dossier)) {
