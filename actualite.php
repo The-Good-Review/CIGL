@@ -1,6 +1,6 @@
 <?php
 
-$dossier = __DIR__ . '/content/actualites/';
+$dossier = __DIR__ . '/content/actualitesGenerales/';
 
 $actus = [];
 if (!is_dir($dossier)) {
