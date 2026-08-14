@@ -83,6 +83,10 @@ collections:
     format: json
 
     fields:      
+      - name: intitule
+        label: Intitulé
+        widget: string
+
       - name: presentation
         label: Présentation du poste
         widget: text

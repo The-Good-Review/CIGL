@@ -176,7 +176,7 @@ $poste = json_decode(
 
         <p class="eyebrow">Votre profil</p>
         <form action="../php/mail3.php" method="POST" enctype="multipart/form-data" id="candidature-form">
-            <input type="hidden" name="poste" value="Assistant Administratif">
+            <input type="hidden" name="poste" value="<?= $poste["intitule"] ?>">
             <fieldset>
                 <div class="section-head">
                     <span class="section-num">01</span>
