@@ -77,6 +77,7 @@ collections:
     extension: json
     format: json
     folder: content/documents
+    create: false
     
     fields:
       - label: Nom
