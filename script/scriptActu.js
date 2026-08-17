@@ -8,21 +8,31 @@ document.addEventListener('DOMContentLoaded', () => {
     let activeCategory = 'toutes';
     let activeSearch = '';
 
+    const normalizeText = (value = '') => value
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase()
+        .trim();
+
     function applyFilters() {
         let visibleCount = 0;
+        const normalizedSearch = normalizeText(activeSearch);
 
         cards.forEach(card => {
             const matchesCategory = activeCategory === 'toutes' || card.dataset.category === activeCategory;
-            const matchesSearch = activeSearch === '' ||
-                card.dataset.title.includes(activeSearch) ||
-                card.dataset.tag.includes(activeSearch);
+            const searchableText = normalizeText(
+                `${card.dataset.title || ''} ${card.dataset.tag || ''} ${card.textContent || ''}`
+            );
+            const matchesSearch = normalizedSearch === '' || searchableText.includes(normalizedSearch);
 
             const visible = matchesCategory && matchesSearch;
             card.style.display = visible ? '' : 'none';
             if (visible) visibleCount++;
         });
 
-        noResults.hidden = visibleCount !== 0;
+        if (noResults) {
+            noResults.hidden = visibleCount !== 0;
+        }
     }
 
     // Sidebar category filtering
@@ -36,10 +46,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Live search
-    searchInput.addEventListener('input', (e) => {
-        activeSearch = e.target.value.trim().toLowerCase();
-        applyFilters();
-    });
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            activeSearch = e.target.value;
+            applyFilters();
+        });
+    }
 
 });
 
