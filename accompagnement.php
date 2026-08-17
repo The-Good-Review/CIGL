@@ -185,11 +185,8 @@ $accomp = json_decode(
     <div class="grey-back">
         <div id="prestxt">
             <p class="presP">La mission du service « Accompagnement vers l'emploi » du CIGL Esch consiste à accompagner
-                une
-                dynamique dont le
-                seul acteur est la personne en parcours, les encadrants étant des catalyseurs. Il s'organise autour de 4
-                grands
-                axes :</p>
+                une dynamique dont le seul acteur est la personne en parcours, les encadrants étant des catalyseurs.
+                Il s'organise autour de 4 grands axes :</p>
             <ul>
                 <li class="presP">Accueil et intégration en milieu de travail</li>
                 <li class="presP">L'accompagnement socio-professionnel</li>

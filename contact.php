@@ -214,7 +214,7 @@
             </div>
             <div class="conf card">
                 <b class="bleu">Délégation du personnel</b> <br>
-                <a class="preslink-bleu" href="mailto:jsp@ciglesch.lu">jsp@ciglesch.lu</a>
+                <a class="preslink-bleu" href="mailto:delegation@ciglesch.lu">delegation@ciglesch.lu</a>
             </div>
             <div class="conf card">
                 <b class="rouge">Délégué de la protection des données</b> <br>

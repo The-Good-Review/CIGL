@@ -174,18 +174,14 @@ foreach ($fichiers as $fichier) {
         <p class="eyebrow">Documents</p>
         <div class="documents">
             <div class="services-grid">
-                <a class="services-link"
-                    href="<?= $documents[0]["lien"] ?>"
-                    target="_blank">
+                <a class="services-link" href="<?= $documents[0]["lien"] ?>" target="_blank">
                     <div class="services-cards">
                         <img src="img/icons/services/download-bleu.png">
                         <p><?= $documents[0]["nom"] ?></p>
                         <p class="fleche bleu">➞</p>
                     </div>
                 </a>
-                <a class="services-link"
-                    href="<?= $documents[1]["lien"] ?>"
-                    target="_blank">
+                <a class="services-link" href="<?= $documents[1]["lien"] ?>" target="_blank">
                     <div class="services-cards">
                         <img src="img/icons/services/download-orange.png">
                         <p><?= $documents[1]["nom"] ?></p>
@@ -199,9 +195,7 @@ foreach ($fichiers as $fichier) {
                         <p class="fleche vert">➞</p>
                     </div>
                 </a>
-                <a class="services-link"
-                    href="<?= $documents[3]["lien"] ?>"
-                    target="_blank">
+                <a class="services-link" href="<?= $documents[3]["lien"] ?>" target="_blank">
                     <div class="services-cards">
                         <img src="img/icons/services/download-rouge.png">
                         <p><?= $documents[3]["nom"] ?></p>
@@ -216,34 +210,67 @@ foreach ($fichiers as $fichier) {
             <section class="articles" id="jobList" aria-label="Liste des postes vacants">
                 <?php
 
-                $tagColors = Array('tag-blue', 'tag-green', 'tag-teal', 'tag-orange');
+                $tagColors = array('tag-blue', 'tag-green', 'tag-teal', 'tag-orange');
 
-                for ($i=0; $i < sizeof($emplois); $i++) { 
-                    echo("
-                        <a style='text-decoration: none;' class='preslink' href='poste.php?poste=".$emplois[$i]['pageAssociee']."'>
-                            <article class='article-card'>
-                                <div class='article-body'>
-                                    <h3>".$emplois[$i]['poste']."</h3>
-                                    <p class='article-desc'>".$emplois[$i]['description']." 
-                                    </p>
-                                    <div class='article-meta'>
-                                        <span class='article-date'>
-                                            <svg width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor'
-                                                stroke-width='2'>
-                                                <rect x='3' y='4' width='18' height='18' rx='2' />
-                                                <line x1='16' y1='2' x2='16' y2='6' />
-                                                <line x1='8' y1='2' x2='8' y2='6' />
-                                                <line x1='3' y1='10' x2='21' y2='10' />
-                                            </svg>
-                                            ".$emplois[$i]['date']."
-                                        </span>
-                                        <span class='tag ".$tagColors[$i%4]."'>".$emplois[$i]['contrat']."</span>
-                                    </div>
-                                </div>
-                                ➜
-                            </article>
-                        </a>
-                    ");
+                function offreEstActive($datePublication)
+                {
+                    $mois = ['janvier' => '01', 'février' => '02', 'mars' => '03', 'avril' => '04', 'mai' => '05', 'juin' => '06', 'juillet' => '07', 'août' => '08', 'septembre' => '09', 'octobre' => '10', 'novembre' => '11', 'décembre' => '12'];
+
+                    $datePublication = strtolower(trim($datePublication));
+
+                    foreach ($mois as $nom => $numero) {
+                        $datePublication = str_replace($nom, $numero, $datePublication);
+                    }
+
+                    $date = DateTime::createFromFormat('d m Y', $datePublication);
+
+                    if (!$date) {
+                        return false;
+                    }
+
+                    $dateExpiration = clone $date;
+                    $dateExpiration->modify('+21 days');
+
+                    $aujourdHui = new DateTime('today');
+
+                    return $aujourdHui < $dateExpiration;
+                }
+
+                if (sizeof($emplois) == 0) {
+                    echo ("<p class='no-results' id='noResults'>Aucune offre d'emploi n'est actuellement en ligne</p>");
+                } else {
+                    for ($i = 0; $i < sizeof($emplois); $i++) {
+                        if (!offreEstActive($emplois[$i]['date'])) {
+                            continue;
+                        }
+                        else {
+                            echo ("
+                                <a style='text-decoration: none;' class='preslink' href='poste.php?poste=" . $emplois[$i]['pageAssociee'] . "'>
+                                    <article class='article-card'>
+                                        <div class='article-body'>
+                                            <h3>" . $emplois[$i]['poste'] . "</h3>
+                                            <p class='article-desc'>" . $emplois[$i]['description'] . " 
+                                            </p>
+                                            <div class='article-meta'>
+                                                <span class='article-date'>
+                                                    <svg width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor'
+                                                        stroke-width='2'>
+                                                        <rect x='3' y='4' width='18' height='18' rx='2' />
+                                                        <line x1='16' y1='2' x2='16' y2='6' />
+                                                        <line x1='8' y1='2' x2='8' y2='6' />
+                                                        <line x1='3' y1='10' x2='21' y2='10' />
+                                                    </svg>
+                                                    " . $emplois[$i]['date'] . "
+                                                </span>
+                                                <span class='tag " . $tagColors[$i % 4] . "'>" . $emplois[$i]['contrat'] . "</span>
+                                            </div>
+                                        </div>
+                                        ➜
+                                    </article>
+                                </a>
+                            ");
+                        }
+                    }
                 }
                 ?>
             </section>
@@ -400,7 +427,7 @@ foreach ($fichiers as $fichier) {
                 alt="instagram"></a>
     </button>
 
-        <div>
+    <div>
         <div id="partenaires" class="grey-back">
             <div class="soutien">
                 <b>Avec le soutien de</b>
