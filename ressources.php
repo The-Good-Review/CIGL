@@ -16,6 +16,22 @@ foreach ($fichiers as $fichier) {
     }
 }
 
+$dossier = __DIR__ . '/content/documents/';
+
+$documents = [];
+if (!is_dir($dossier)) {
+    return $documents;
+}
+$fichiers = glob($dossier . '*.json');
+foreach ($fichiers as $fichier) {
+    $contenu = file_get_contents($fichier);
+    $document = json_decode($contenu, true);
+    if ($document !== null) {
+        $document['_fichier'] = basename($fichier);
+        $documents[] = $document;
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -159,36 +175,36 @@ foreach ($fichiers as $fichier) {
         <div class="documents">
             <div class="services-grid">
                 <a class="services-link"
-                    href="https://www.ciglesch.lu/wp-content/uploads/2026/07/CIGLESCH-RAPPORTDACTIVITES-2025.pdf"
+                    href="<?= $documents[0]["lien"] ?>"
                     target="_blank">
                     <div class="services-cards">
                         <img src="img/icons/services/download-bleu.png">
-                        <p>Rapport d'activité 2025</p>
+                        <p><?= $documents[0]["nom"] ?></p>
                         <p class="fleche bleu">➞</p>
                     </div>
                 </a>
                 <a class="services-link"
-                    href="https://www.ciglesch.lu/wp-content/uploads/2025/07/CIGLESCH-RAPPORTDACTIVITES-2024.pdf"
+                    href="<?= $documents[1]["lien"] ?>"
                     target="_blank">
                     <div class="services-cards">
                         <img src="img/icons/services/download-orange.png">
-                        <p>Rapport d'activité 2024</p>
+                        <p><?= $documents[1]["nom"] ?></p>
                         <p class="fleche orange">➞</p>
                     </div>
                 </a>
-                <a class="services-link" href="documents/Conseil_administration.pdf" target="_blank">
+                <a class="services-link" href="<?= $documents[2]["lien"] ?>" target="_blank">
                     <div class="services-cards">
                         <img src="img/icons/services/download-vert.png">
-                        <p>Le conseil d'administration</p>
+                        <p><?= $documents[2]["nom"] ?></p>
                         <p class="fleche vert">➞</p>
                     </div>
                 </a>
                 <a class="services-link"
-                    href="https://www.ciglesch.lu/wp-content/uploads/2024/12/PS15_Politique_protection_DCP_CIGLEsch_v00_04.pdf"
+                    href="<?= $documents[3]["lien"] ?>"
                     target="_blank">
                     <div class="services-cards">
                         <img src="img/icons/services/download-rouge.png">
-                        <p>Notre politique de confidentialité</p>
+                        <p><?= $documents[3]["nom"] ?></p>
                         <p class="fleche rouge">➞</p>
                     </div>
                 </a>

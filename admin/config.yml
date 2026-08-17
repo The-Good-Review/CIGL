@@ -72,6 +72,21 @@ collections:
             name: formations
             widget: number
 
+  - name: documents
+    label: Documents Téléchargeable
+    files:
+      - label: Documents à télécharger
+        name: documents
+        file: "content/documents.json"
+        fields:
+          - label: Nom
+            name: nom
+            widget: string
+
+          - label: Lien de téléchargement
+            name: lien
+            widget: string
+
   - name: postes
     label: Fiches de poste
     label_singular: Fiche de poste
