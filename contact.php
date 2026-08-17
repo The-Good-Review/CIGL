@@ -213,12 +213,12 @@
                 <legend class="section-title vert">Contacts confidentiels</legend>
             </div>
             <div class="conf card">
-                <b class="orange">Délégué de la protection des données</b> <br>
-                <a class="preslink-orange" href="mailto:dpo@ciglesch.lu">dpo@ciglesch.lu</a>
-            </div>
-            <div class="conf card">
                 <b class="bleu">Délégation du personnel</b> <br>
                 <a class="preslink-bleu" href="mailto:jsp@ciglesch.lu">jsp@ciglesch.lu</a>
+            </div>
+            <div class="conf card">
+                <b class="rouge">Délégué de la protection des données</b> <br>
+                <a class="preslink-rouge" href="mailto:dpo@ciglesch.lu">dpo@ciglesch.lu</a>
             </div>
             <div class="conf card">
                 <b class="vert">Canal lanceur d'alerte</b> <br><br>
@@ -230,6 +230,15 @@
                     </svg>
                 </a>
                 <br><br>
+            </div>
+            <br>
+            <div class="section-head">
+                <legend class="section-title vert">Contact du bureau</legend>
+            </div>
+            <div id="num" class="conf card">
+                <b class="orange">Disponible du lundi au vendredi <br> entre 8h-12h et 13h-17h</b>
+                <a class="preslink-orange" href="mailto:info@ciglesch.lu">info@ciglesch.lu</a>
+                <a class="preslink-orange" href="tel:+352544245200">+352 54 42 45 200</a>
             </div>
         </div>
     </div>
