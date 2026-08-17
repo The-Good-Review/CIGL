@@ -150,7 +150,7 @@ collections:
         widget: richtext
 
       - name: date
-        label: Date de publication
+        label: Date de publication (si cette date est dépassée de 3 semaines l'offre ne s'affiche plus)
         widget: string
 
       - name: contrat

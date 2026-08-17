@@ -215,24 +215,17 @@ foreach ($fichiers as $fichier) {
                 function offreEstActive($datePublication)
                 {
                     $mois = ['janvier' => '01', 'février' => '02', 'mars' => '03', 'avril' => '04', 'mai' => '05', 'juin' => '06', 'juillet' => '07', 'août' => '08', 'septembre' => '09', 'octobre' => '10', 'novembre' => '11', 'décembre' => '12'];
-
                     $datePublication = strtolower(trim($datePublication));
-
                     foreach ($mois as $nom => $numero) {
                         $datePublication = str_replace($nom, $numero, $datePublication);
                     }
-
                     $date = DateTime::createFromFormat('d m Y', $datePublication);
-
                     if (!$date) {
                         return false;
                     }
-
                     $dateExpiration = clone $date;
                     $dateExpiration->modify('+21 days');
-
                     $aujourdHui = new DateTime('today');
-
                     return $aujourdHui < $dateExpiration;
                 }
 
