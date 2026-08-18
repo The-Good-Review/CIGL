@@ -287,67 +287,6 @@ $accueil = json_decode(
         </div>
     </div>
     </div>
-    <!--
-    <div id="admin">
-        <h1>Le conseil d'administration</h1>
-        <p>Le Conseil d'administration est constitué par des représentants des forces vives locales.
-            Ces collaborateurs
-            bénévoles s'investissent avec énergie et veillent au bon fonctionnement du CIGL Esch.
-        </p> <br><br>
-        <div id="admintable">
-            <table>
-                <tbody>
-                    <tr>
-                        <td>REMACKEL Francis<br>
-                            Président</td>
-                        <td>WEISGERBER Max<br>
-                            Vice-président</td>
-                        <td>OLIVEIRA Pedro<br>
-                            Trésorier</td>
-                        <td>GILBERTZ André<br>
-                            Secrétaire</td>
-                    </tr>
-                    <tr>
-                        <td>MAHNEN François<br>
-                            Membre</td>
-                        <td>PENNING René<br>
-                            Membre</td>
-                        <td>HOFFMANN Mike<br>
-                            Membre</td>
-                        <td>RASQUIN Carmen<br>
-                            Membre</td>
-                    </tr>
-                    <tr>
-                        <td>BERMES Pascal<br>
-                            Membre</td>
-                        <td>KALMES Nadine<br>
-                            Membre</td>
-                        <td>PASQUALONI Nando<br>
-                            Membre</td>
-                        <td>ANZIL Giorgio<br>
-                            Membre</td>
-                    </tr>
-                    <tr>
-                        <td>BARTHELMY Jos<br>
-                            Membre</td>
-                        <td>BIWER Stéphane<br>
-                            Membre</td>
-                        <td>BAUSCH Andy<br>
-                            Membre</td>
-                        <td>BREUER Jacqueline<br>
-                            Membre</td>
-                    </tr>
-                    <tr>
-                        <td>SENECHAL Sandra<br>
-                            Membre</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div> -->
 
     <button id="btn" class="Btn">
         <span class="text"><img src="img/icons/medias/facebook.png" alt="facebook"></span>
@@ -385,9 +324,13 @@ $accueil = json_decode(
                 <a href="https://www.ciglesch.lu/wp-content/uploads/2024/12/PS15_Politique_protection_DCP_CIGLEsch_v00_04.pdf"
                     target="_blank">Politique
                     de confidentialité </a> | <a href="/mentions.php"> Mentions
-                    légales </a> | <a href=""> Cookies</a>
+                    légales </a>
             </div>
         </footer>
     </div>
+    <script src="https://cdn.commoninja.com/sdk/latest/commonninja.js" defer></script>
+    <div class="commonninja_component pid-6cbafc33-f0de-4d77-8cdb-d0ebd760a261"></div>
+    <script src="https://cdn.commoninja.com/sdk/latest/commonninja.js" defer></script>
+    <div class="commonninja_component pid-6cbafc33-f0de-4d77-8cdb-d0ebd760a261"></div>
     <script src="script/script.js"></script>
 </body>

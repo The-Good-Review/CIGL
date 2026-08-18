@@ -371,9 +371,11 @@ $temoignages = json_decode(
                 <a href="https://www.ciglesch.lu/wp-content/uploads/2024/12/PS15_Politique_protection_DCP_CIGLEsch_v00_04.pdf"
                     target="_blank">Politique
                     de confidentialité </a> | <a href="/mentions.php"> Mentions
-                    légales </a> | <a href=""> Cookies</a>
+                    légales </a>
             </div>
         </footer>
     </div>
+    <script src="https://cdn.commoninja.com/sdk/latest/commonninja.js" defer></script>
+    <div class="commonninja_component pid-6cbafc33-f0de-4d77-8cdb-d0ebd760a261"></div>
     <script src="../../script/script.js"></script>
 </body>

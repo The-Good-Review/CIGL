@@ -233,7 +233,7 @@
             </div>
             <br>
             <div class="section-head">
-                <legend class="section-title vert">Contact du bureau</legend>
+                <legend class="section-title vert">Contact de l'administration</legend>
             </div>
             <div id="num" class="conf card">
                 <b class="orange">Disponible du lundi au vendredi <br> entre 8h-12h et 13h-17h</b>
@@ -360,10 +360,12 @@
                 <a href="https://www.ciglesch.lu/wp-content/uploads/2024/12/PS15_Politique_protection_DCP_CIGLEsch_v00_04.pdf"
                     target="_blank">Politique
                     de confidentialité </a> | <a href="/mentions.php"> Mentions
-                    légales </a> | <a href=""> Cookies</a>
+                    légales </a>
             </div>
         </footer>
     </div>
+    <script src="https://cdn.commoninja.com/sdk/latest/commonninja.js" defer></script>
+    <div class="commonninja_component pid-6cbafc33-f0de-4d77-8cdb-d0ebd760a261"></div>
     <script src="script/script.js"></script>
     <script src="script/scriptContact.js"></script>
 </body>
