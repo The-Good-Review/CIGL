@@ -331,43 +331,6 @@ $accueil = json_decode(
                     de confidentialité </a> | <a href="/mentions.php"> Mentions
                     légales </a> | <a href="#" id="clearSiteData"> Cookies </a>
             </div>
-            <script>
-                // 
-                async function clearSiteData() {
-                    localStorage.clear();
-                    sessionStorage.clear();
-                    if (indexedDB.databases) {
-                        const databases = await indexedDB.databases();
-                        for (const db of databases) {
-                            if (db.name) {
-                                indexedDB.deleteDatabase(db.name);
-                            }
-                        }
-                    }
-                    if ('caches' in window) {
-                        const cacheNames = await caches.keys();
-                        for (const cacheName of cacheNames) {
-                            await caches.delete(cacheName);
-                        }
-                    }
-                    if ('serviceWorker' in navigator) {
-                        const registrations = await navigator.serviceWorker.getRegistrations();
-                        for (const registration of registrations) {
-                            await registration.unregister();
-                        }
-                    }
-                    document.cookie.split(';').forEach(cookie => {
-                        const name = cookie.split('=')[0].trim();
-                        document.cookie =
-                            name + '=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/';
-                    });
-                    location.reload();
-                }
-                document.getElementById('clearSiteData').addEventListener('click', async function (e) {
-                    e.preventDefault();
-                    await clearSiteData();
-                });
-            </script>
         </footer>
     </div>
     <script src="https://cdn.commoninja.com/sdk/latest/commonninja.js" defer></script>

@@ -393,7 +393,7 @@
                 <a href="https://www.ciglesch.lu/wp-content/uploads/2024/12/PS15_Politique_protection_DCP_CIGLEsch_v00_04.pdf"
                     target="_blank">Politique
                     de confidentialité </a> | <a href="/mentions.php"> Mentions
-                    légales </a> | <a href=""> Cookies </a>
+                    légales </a> | <a href="#" id="clearSiteData"> Cookies </a>
             </div>
         </footer>
     </div>

@@ -275,9 +275,13 @@ const palette = {
 };
 
 function renderChart(chartId, legendId, data, maxHeight = 150) {
-    const maxVal = Math.max(...data.map(d => d.value));
     const barsEl = document.getElementById(chartId);
     const legendEl = document.getElementById(legendId);
+
+    // Skip if elements don't exist
+    if (!barsEl || !legendEl) return;
+
+    const maxVal = Math.max(...data.map(d => d.value));
     barsEl.innerHTML = "";
     legendEl.innerHTML = "";
     data.forEach(d => {
@@ -303,8 +307,11 @@ renderChart("chart-contrats", "legend-contrats", [
     { value: 172, color: "red", label: "Bénéficiaires" },
     { value: 3, color: "green", label: "Apprenti" },
 ]);
-document.getElementById("legend-contrats").insertAdjacentHTML("beforeend",
-    `<div style="margin-top:4px;font-weight:700;font-family:'Poppins',sans-serif;">Effectif total : 249</div>`);
+const legendContratsEl = document.getElementById("legend-contrats");
+if (legendContratsEl) {
+    legendContratsEl.insertAdjacentHTML("beforeend",
+        `<div style="margin-top:4px;font-weight:700;font-family:'Poppins',sans-serif;">Effectif total : 249</div>`);
+}
 
 renderChart("chart-flux", "legend-flux", [
     { value: 102, color: "green", label: "Entrées", sub: "94 bénéficiaires, 8 encadrants" },
@@ -335,48 +342,51 @@ renderChart("chart-departs", "legend-departs", [
 
 // graphique heures d'accueil en crèche
 const mobile = window.innerWidth < 800;
+const hoursElement = document.getElementById('hours');
 
-new Chart(hours, {
-    type: 'bar',
+if (hoursElement) {
+    new Chart(hoursElement, {
+        type: 'bar',
 
-    data: {
-        labels: ['2025', '2024', '2023', '2022', '2021', '2020'],
-        datasets: [{
-            data: [83206.25, 78474.92, 78007.95, 70853.25, 65714.95, 59463.66],
-            backgroundColor: ['#1f9dc0', '#7da646', '#f6a63a', '#f25a46', '#7d7d7d', '#1f9dc0']
-        }]
-    },
-
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-
-        indexAxis: mobile ? 'x' : 'y',
-
-        plugins: {
-            legend: {
-                display: false
-            }
+        data: {
+            labels: ['2025', '2024', '2023', '2022', '2021', '2020'],
+            datasets: [{
+                data: [83206.25, 78474.92, 78007.95, 70853.25, 65714.95, 59463.66],
+                backgroundColor: ['#1f9dc0', '#7da646', '#f6a63a', '#f25a46', '#7d7d7d', '#1f9dc0']
+            }]
         },
 
-        scales: {
-            x: {
-                ticks: {
-                    font: {
-                        size: mobile ? 10 : 14
-                    }
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+
+            indexAxis: mobile ? 'x' : 'y',
+
+            plugins: {
+                legend: {
+                    display: false
                 }
             },
-            y: {
-                ticks: {
-                    font: {
-                        size: mobile ? 11 : 14
+
+            scales: {
+                x: {
+                    ticks: {
+                        font: {
+                            size: mobile ? 10 : 14
+                        }
+                    }
+                },
+                y: {
+                    ticks: {
+                        font: {
+                            size: mobile ? 11 : 14
+                        }
                     }
                 }
             }
         }
-    }
-});
+    });
+}
 
 
 /* ---------- Section 2 : Formations ---------- */
@@ -435,11 +445,97 @@ const formationCards = [
 ];
 
 const grid = document.getElementById("formations-grid");
-formationCards.forEach(c => {
-    const card = document.createElement("div");
-    card.className = "card " + c.color;
-    card.innerHTML = `
+if (grid) {
+    formationCards.forEach(c => {
+        const card = document.createElement("div");
+        card.className = "card " + c.color;
+        card.innerHTML = `
     <div class="card-head"><span>${c.title}</span><span class="year">2025</span></div>
     ${c.rows.map(r => `<div class="row"><span>${r[0]}</span><span class="val">${r[1]}</span></div>`).join("")}`;
-    grid.appendChild(card);
+        grid.appendChild(card);
+    });
+}
+
+// RESET COOKIES SETTINGS
+document.addEventListener("DOMContentLoaded", function () {
+    const clearLink = document.getElementById("clearSiteData");
+
+    if (clearLink) {
+        clearLink.addEventListener("click", async function (e) {
+            e.preventDefault();
+            console.log("Clear data started...");
+
+            try {
+                localStorage.clear();
+                console.log("localStorage cleared");
+            } catch (err) {
+                console.warn("Could not clear localStorage:", err);
+            }
+
+            try {
+                sessionStorage.clear();
+                console.log("sessionStorage cleared");
+            } catch (err) {
+                console.warn("Could not clear sessionStorage:", err);
+            }
+
+            // IndexedDB
+            try {
+                if (indexedDB.databases && typeof indexedDB.databases === 'function') {
+                    const databases = await indexedDB.databases();
+                    for (const db of databases) {
+                        if (db.name) {
+                            indexedDB.deleteDatabase(db.name);
+                        }
+                    }
+                    console.log("IndexedDB cleared");
+                }
+            } catch (err) {
+                console.warn("Could not clear IndexedDB:", err);
+            }
+
+            // Cache Storage
+            try {
+                if ("caches" in window) {
+                    const cacheNames = await caches.keys();
+                    for (const cacheName of cacheNames) {
+                        await caches.delete(cacheName);
+                    }
+                    console.log("Caches cleared");
+                }
+            } catch (err) {
+                console.warn("Could not clear caches:", err);
+            }
+
+            // Service Workers
+            try {
+                if ("serviceWorker" in navigator) {
+                    const registrations = await navigator.serviceWorker.getRegistrations();
+                    for (const registration of registrations) {
+                        await registration.unregister();
+                    }
+                    console.log("Service workers unregistered");
+                }
+            } catch (err) {
+                console.warn("Could not unregister service workers:", err);
+            }
+
+            // Cookies accessibles en JavaScript
+            try {
+                if (document.cookie) {
+                    document.cookie.split(";").forEach(function (cookie) {
+                        const name = cookie.split("=")[0].trim();
+                        if (name) {
+                            document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;";
+                        }
+                    });
+                    console.log("Cookies cleared");
+                }
+            } catch (err) {
+                console.warn("Could not clear cookies:", err);
+            }
+        });
+    } else {
+        console.warn("clearSiteData element not found");
+    }
 });
