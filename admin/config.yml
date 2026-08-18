@@ -161,7 +161,6 @@ collections:
         label: Page Associée
         widget: string
 
-
   - name: temoignages
     label: Témoignages
     files:

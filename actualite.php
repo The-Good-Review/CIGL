@@ -323,7 +323,7 @@ foreach ($fichiers as $fichier) {
                 <a href="https://www.ciglesch.lu/wp-content/uploads/2024/12/PS15_Politique_protection_DCP_CIGLEsch_v00_04.pdf"
                     target="_blank">Politique
                     de confidentialité </a> | <a href="/mentions.php"> Mentions
-                    légales </a>
+                    légales </a> | <a href=""> Cookies </a>
             </div>
         </footer>
     </div>

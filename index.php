@@ -43,11 +43,14 @@ $accueil = json_decode(
                             aria-label="Ouvrir le sous-menu Enfance et jeunesse" aria-expanded="false">›</button>
                         <div class="submenu">
                             <ul>
-                                <li><a href="https://www.heemelmaus.lu/qui-sommes-nous-creche-belval/" target="_blank">Creche Belval</a>
+                                <li><a href="https://www.heemelmaus.lu/qui-sommes-nous-creche-belval/"
+                                        target="_blank">Creche Belval</a>
                                 </li>
-                                <li><a href="https://heemelmaus.lu/qui-sommes-nous-accueil-educatif/" target="_blank">Acceuil
+                                <li><a href="https://heemelmaus.lu/qui-sommes-nous-accueil-educatif/"
+                                        target="_blank">Acceuil
                                         Educatif</a></li>
-                                <li><a href="https://www.heemelmaus.lu/qui-sommes-nous-maison-relais/" target="_blank">Maison Relai</a>
+                                <li><a href="https://www.heemelmaus.lu/qui-sommes-nous-maison-relais/"
+                                        target="_blank">Maison Relai</a>
                                 </li>
                             </ul>
                         </div>
@@ -72,7 +75,8 @@ $accueil = json_decode(
                                 <li><a href="pagesServices/jardin/deg.php">Den Escher Geméisguart</a></li>
                                 <li><a href="pagesServices/jardin/kal.php">Kalendula</a></li>
                                 <li><a href="pagesServices/jardin/lag.php">Léieren am gaart</a></li>
-                                <li><a href="https://interreg-gr.eu/project/integravert-fr-2/" target="_blank">Integravert</a></li>
+                                <li><a href="https://interreg-gr.eu/project/integravert-fr-2/"
+                                        target="_blank">Integravert</a></li>
                                 <li><a href="pagesServices/jardin/rec.php">RECUP</a></li>
                                 <li><a href="pagesServices/jardin/legumes.php">Vente de Légumes</a></li>
                             </ul>
@@ -249,7 +253,7 @@ $accueil = json_decode(
                     d'emploi</h3>
             </div>
             <a href="accompagnement.php" class="button">Comprendre le parcours ➞</a>
-        </div> 
+        </div>
         <br>
     </div>
     <div class="values">
@@ -318,14 +322,52 @@ $accueil = json_decode(
         <footer>
             <div class="adress">
                 <b>CIGL Esch-sur-Alzette a.s.b.l.</b>
-                <a href="https://maps.app.goo.gl/LywJj1peBjcj2GXX9" target="_blank">86, rue Victor Hugo, L-4141 Esch-sur-Alzette</a>
+                <a href="https://maps.app.goo.gl/LywJj1peBjcj2GXX9" target="_blank">86, rue Victor Hugo, L-4141
+                    Esch-sur-Alzette</a>
             </div>
             <div id="liensdubas">
                 <a href="https://www.ciglesch.lu/wp-content/uploads/2024/12/PS15_Politique_protection_DCP_CIGLEsch_v00_04.pdf"
-                    target="_blank">Politique
+                    target="_blank"> Politique
                     de confidentialité </a> | <a href="/mentions.php"> Mentions
-                    légales </a>
+                    légales </a> | <a href="#" id="clearSiteData"> Cookies </a>
             </div>
+            <script>
+                // 
+                async function clearSiteData() {
+                    localStorage.clear();
+                    sessionStorage.clear();
+                    if (indexedDB.databases) {
+                        const databases = await indexedDB.databases();
+                        for (const db of databases) {
+                            if (db.name) {
+                                indexedDB.deleteDatabase(db.name);
+                            }
+                        }
+                    }
+                    if ('caches' in window) {
+                        const cacheNames = await caches.keys();
+                        for (const cacheName of cacheNames) {
+                            await caches.delete(cacheName);
+                        }
+                    }
+                    if ('serviceWorker' in navigator) {
+                        const registrations = await navigator.serviceWorker.getRegistrations();
+                        for (const registration of registrations) {
+                            await registration.unregister();
+                        }
+                    }
+                    document.cookie.split(';').forEach(cookie => {
+                        const name = cookie.split('=')[0].trim();
+                        document.cookie =
+                            name + '=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/';
+                    });
+                    location.reload();
+                }
+                document.getElementById('clearSiteData').addEventListener('click', async function (e) {
+                    e.preventDefault();
+                    await clearSiteData();
+                });
+            </script>
         </footer>
     </div>
     <script src="https://cdn.commoninja.com/sdk/latest/commonninja.js" defer></script>
