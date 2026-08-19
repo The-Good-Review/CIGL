@@ -2,6 +2,5 @@
   "texte": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Possimus voluptates quod ducimus ipsum cum tenetur libero quibusdam dicta exercitationem, molestias beatae ab inventore nostrum tempore! Cumque recusandae perferendis ullam officia. Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor corrupti omnis fugit distinctio autem, alias rerum ducimus possimus optio harum, animi aut! Esse tempora recusandae earum porro doloremque, magni minus.",
   "nom": "Jacques LeGros",
   "metier": "Préambulateur",
-  "image": "/uploads/velo.jpg",
-  "img": "../../uploads/test-temoignage.jpg"
+  "image": "../../uploads/test-temoignage.jpg"
 }
