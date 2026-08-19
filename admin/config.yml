@@ -165,7 +165,7 @@ collections:
     label: Témoignages
     extension: json
     format: json
-    folder: content/documents
+    folder: content/temoignages
     create: true
     
     fields:

@@ -1,7 +1,7 @@
 <?php
 
 $temoignages = json_decode(
-    file_get_contents("../../content/temoignages.json"),
+    file_get_contents("../../content/temoignages/construction.json"),
     true
 );
 
@@ -325,7 +325,7 @@ $temoignages = json_decode(
                 <a href="https://www.ciglesch.lu/wp-content/uploads/2024/12/PS15_Politique_protection_DCP_CIGLEsch_v00_04.pdf"
                     target="_blank">Politique
                     de confidentialité </a> | <a href="/mentions.php"> Mentions
-                    légales </a> | <a href="#" id="clearSiteData"> Cookies </a>
+                    légales </a>
             </div>
         </footer>
     </div>
