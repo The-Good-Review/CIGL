@@ -378,9 +378,9 @@ $temoignages = json_decode(
         <div class="services">
             <h2 class="rouge">TEMOIGNAGE</h2>
             <div class="temoignage">
-                <img src="<?= $temoignages['img'] ?>" alt="">
+                <img src="<?= $temoignages['image'] ?>" alt="">
                 <div class="temoignageMobile">
-                    <img id="pdpMobile" src="<?= $temoignages['img'] ?>" alt="">
+                    <img id="pdpMobile" src="<?= $temoignages['image'] ?>" alt="">
                     <img id="quoteMobile" src="../../img/icons/services/quote-rouge.png" alt="">
                 </div>
                 <div class="presP">
