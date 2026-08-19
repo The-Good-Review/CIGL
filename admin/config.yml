@@ -177,12 +177,12 @@ collections:
         name: nom
         widget: string
 
-      - label: metier
-        name: Metier
+      - label: Metier
+        name: metier
         widget: string
 
-      - label: img
-        name: Image
+      - label: Img
+        name: image
         widget: image
 
   - name: actualitesGenerales
