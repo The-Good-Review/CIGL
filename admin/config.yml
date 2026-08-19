@@ -161,32 +161,29 @@ collections:
         label: Page Associée
         widget: string
 
-  - name: temoignages
+  - name: temoignage
     label: Témoignages
-    files:
-      - label: Témoignages
-        name: temoignages
-        file: "content/temoignages.json"
-        fields:
-          - label: Témoignage
-            name: temTest
-            widget: object
-            fields:
-              - label: Texte
-                name: texte
-                widget: text
+    extension: json
+    format: json
+    folder: content/documents
+    create: true
+    
+    fields:
+      - label: Texte
+        name: texte
+        widget: string
 
-              - label: Nom
-                name: nom
-                widget: string
+      - label: Nom
+        name: nom
+        widget: string
 
-              - label: Métier
-                name: metier
-                widget: string
+      - label: metier
+        name: Metier
+        widget: string
 
-              - label: Image
-                name: img
-                widget: image
+      - label: img
+        name: Image
+        widget: image
 
   - name: actualitesGenerales
     label: Actualités générales
