@@ -1,7 +1,7 @@
 <?php
 
 $temoignages = json_decode(
-    file_get_contents("../../content/temoignages/rec.json"),
+    file_get_contents("../../content/temoignages/recup.json"),
     true
 );
 

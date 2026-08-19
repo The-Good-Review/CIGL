@@ -1,7 +1,7 @@
 <?php
 
 $temoignages = json_decode(
-    file_get_contents("../../content/temoignages/den.json"),
+    file_get_contents("../../content/temoignages/denHandkesselchen.json"),
     true
 );
 

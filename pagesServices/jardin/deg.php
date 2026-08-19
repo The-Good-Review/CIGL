@@ -1,7 +1,7 @@
 <?php
 
 $temoignages = json_decode(
-    file_get_contents("../../content/temoignages/deg.json"),
+    file_get_contents("../../content/temoignages/denEscherGemeisguart.json"),
     true
 );
 
