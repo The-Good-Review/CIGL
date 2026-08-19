@@ -147,8 +147,8 @@ $accueil = json_decode(
         </div>
         <img src="img/acceuil.JPG" alt="">
     </div>
-    <div class="grey-back">
-        <div class="stats">
+    <br>
+    <div class="stats">
             <div class="stats-grid">
                 <div class="stat-cards">
                     <div class="stat-icon">
@@ -195,6 +195,7 @@ $accueil = json_decode(
                 </div>
             </div>
         </div>
+    <div class="grey-back">
         <div class="titre-sections">
             <h4>Des services utiles près de chez vous</h4>
             <h3>Trouvez directement la réponse qui correspond à votre besoin.</h3>

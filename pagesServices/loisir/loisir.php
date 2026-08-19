@@ -188,50 +188,51 @@ foreach ($fichiers as $fichier) {
                 </a>
             </div>
         </div>
-        <div class="titre-sections">
-            <h4>Acutalités</h4>
-        </div>
-        <div class="actuFamille">
-            <section class="articles" id="articlesList" aria-label="Liste des actualités">
+        <?php
+            if (sizeof($actus) > 0) {
+                echo('<div class="titre-sections">
+                        <h4>Acutalités</h4>
+                    </div>');
+                echo('<div class="actuFamille">
+                        <section class="articles" id="articlesList" aria-label="Liste des actualités">');
+            }
+            
+            $colors = Array('orange', 'green', 'teal', 'red');
+            $tagColors = Array('tag-blue', 'tag-green', 'tag-teal', 'tag-orange');
 
-                <?php
-
-                $colors = Array('orange', 'green', 'teal', 'red');
-                $tagColors = Array('tag-blue', 'tag-green', 'tag-teal', 'tag-orange');
-
-                for ($i=0; $i < sizeof($actus); $i++) { 
-                    echo(
-                        "<article class='article-card' data-title='".$actus[$i]['titre']."
-                        'data-tag='".$actus[$i]['titre']."'>
-                            <div class='article-thumb' aria-hidden='true'>
-                                <img src='".$actus[$i]['img']."' alt=''>
+            for ($i=0; $i < sizeof($actus); $i++) { 
+                echo(
+                    "<article class='article-card' data-title='".$actus[$i]['titre']."
+                    'data-tag='".$actus[$i]['titre']."'>
+                        <div class='article-thumb' aria-hidden='true'>
+                            <img src='".$actus[$i]['img']."' alt=''>
+                        </div>
+                        <div class='article-body'>
+                            <p class='article-eyebrow eyebrow-".$colors[$i%4]."'>".$actus[$i]['titre']."</p>
+                            <h3>".$actus[$i]['sous-titre']."</h3>
+                            <p class='article-desc'>".$actus[$i]['contenu']."</p>
+                            <div class='article-meta'>
+                                <span class='article-date'>
+                                    <svg width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor'
+                                        stroke-width='2'>
+                                        <rect x='3' y='4' width='18' height='18' rx='2' />
+                                        <line x1='16' y1='2' x2='16' y2='6' />
+                                        <line x1='8' y1='2' x2='8' y2='6' />
+                                        <line x1='3' y1='10' x2='21' y2='10' />
+                                    </svg>
+                                    ".$actus[$i]['date']."
+                                </span>
+                                <span class='tag ".$tagColors[$i%4]."'>".$actus[$i]['titre']."</span>
                             </div>
-                            <div class='article-body'>
-                                <p class='article-eyebrow eyebrow-".$colors[$i%4]."'>".$actus[$i]['titre']."</p>
-                                <h3>".$actus[$i]['sous-titre']."</h3>
-                                <p class='article-desc'>".$actus[$i]['contenu']."</p>
-                                <div class='article-meta'>
-                                    <span class='article-date'>
-                                        <svg width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor'
-                                            stroke-width='2'>
-                                            <rect x='3' y='4' width='18' height='18' rx='2' />
-                                            <line x1='16' y1='2' x2='16' y2='6' />
-                                            <line x1='8' y1='2' x2='8' y2='6' />
-                                            <line x1='3' y1='10' x2='21' y2='10' />
-                                        </svg>
-                                        ".$actus[$i]['date']."
-                                    </span>
-                                    <span class='tag ".$tagColors[$i%4]."'>".$actus[$i]['titre']."</span>
-                                </div>
-                            </div>
-                        </article>"
-                    );
-                }
-                ?>
-
-                <p class="no-results" id="noResults" hidden>Aucune actualité ne correspond à votre recherche.</p>
-            </section>
-        </div>
+                        </div>
+                    </article>"
+                );
+            }
+            if (sizeof($actus) > 0) {
+                echo('</section>
+                </div>');
+            }
+        ?>
     </div>
     
     <button id="btn" class="Btn">
