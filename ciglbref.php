@@ -349,9 +349,6 @@
             </div>
         </div>
 
-        <h5>Evolution du volume d'heures d'accueil en crèche entre 2020 et 2025</h5>
-        <div class='card'><canvas id='hours'></canvas></div>
-
         <h5 class="page-title">Formations individuelles ou collectives en 2025</h5>
         <div class="grid" id="formations-grid"></div>
     </div>

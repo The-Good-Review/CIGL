@@ -170,7 +170,7 @@ document.querySelectorAll('.presP').forEach(el => observer.observe(el));
         // Progression linéaire sur toute la page: 0 (haut) -> 1 (bas)
         let raw = maxScroll > 0 ? window.scrollY / maxScroll : 0;
         raw = Math.min(Math.max(raw, 0.02), 1);
-        const finishPoint = window.innerWidth < 800 ? 0.36 : 0.45;
+        const finishPoint = window.innerWidth < 800 ? 0.36 : 0.51;
         let prog = raw / finishPoint;
         if (prog > 1) prog = 1;
 
@@ -339,54 +339,6 @@ renderChart("chart-departs", "legend-departs", [
     { value: 39, color: "yellow", label: "Fin de parcours complet" },
     { value: 1, color: "maroon", label: "Résiliation du contrat à l'essai" },
 ], 150);
-
-// graphique heures d'accueil en crèche
-const mobile = window.innerWidth < 800;
-const hoursElement = document.getElementById('hours');
-
-if (hoursElement) {
-    new Chart(hoursElement, {
-        type: 'bar',
-
-        data: {
-            labels: ['2025', '2024', '2023', '2022', '2021', '2020'],
-            datasets: [{
-                data: [83206.25, 78474.92, 78007.95, 70853.25, 65714.95, 59463.66],
-                backgroundColor: ['#1f9dc0', '#7da646', '#f6a63a', '#f25a46', '#7d7d7d', '#1f9dc0']
-            }]
-        },
-
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-
-            indexAxis: mobile ? 'x' : 'y',
-
-            plugins: {
-                legend: {
-                    display: false
-                }
-            },
-
-            scales: {
-                x: {
-                    ticks: {
-                        font: {
-                            size: mobile ? 10 : 14
-                        }
-                    }
-                },
-                y: {
-                    ticks: {
-                        font: {
-                            size: mobile ? 11 : 14
-                        }
-                    }
-                }
-            }
-        }
-    });
-}
 
 
 /* ---------- Section 2 : Formations ---------- */
