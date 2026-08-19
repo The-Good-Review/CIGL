@@ -287,16 +287,16 @@ $temoignages = json_decode(
         <div class="services">
             <h2 class="rouge">TEMOIGNAGE</h2>
             <div class="temoignage">
-                <img src="<?= $temoignages['temTest']['img'] ?>" alt="">
+                <img src="<?= $temoignages['img'] ?>" alt="">
                 <div class="temoignageMobile">
-                    <img id="pdpMobile" src="<?= $temoignages['temTest']['img'] ?>" alt="">
+                    <img id="pdpMobile" src="<?= $temoignages['img'] ?>" alt="">
                     <img id="quoteMobile" src="../../img/icons/services/quote-rouge.png" alt="">
                 </div>
                 <div class="presP">
                     <img src="../../img/icons/services/quote-rouge.png" alt="">
-                    <p><?= $temoignages['temTest']['texte'] ?></p>
-                    <b class="deepRed"><?= $temoignages['temTest']['nom'] ?></b> <br>
-                    <small><?= $temoignages['temTest']['metier'] ?></small>
+                    <p><?= $temoignages['texte'] ?></p>
+                    <b class="deepRed"><?= $temoignages['nom'] ?></b> <br>
+                    <small><?= $temoignages['metier'] ?></small>
                 </div>
             </div>
         </div>
