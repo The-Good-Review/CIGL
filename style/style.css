@@ -2366,10 +2366,6 @@ button[type="submit"]:focus-visible {
     position: relative;
 }
 
-.article-card:last-of-type {
-    border-bottom: none;
-}
-
 .article-card:hover {
     background: #fafbfb;
 }
