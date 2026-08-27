@@ -217,28 +217,17 @@
                 <a class="preslink-bleu" href="mailto:delegation@ciglesch.lu">delegation@ciglesch.lu</a>
             </div>
             <div class="conf card">
-                <b class="rouge">Délégué de la protection des données</b> <br>
-                <a class="preslink-rouge" href="mailto:dpo@ciglesch.lu">dpo@ciglesch.lu</a>
-            </div>
-            <div class="conf card">
-                <b class="vert">Canal lanceur d'alerte</b> <br><br>
-                <a href="" class="cta">
-                    <span>Rejoindre le canal</span>
-                    <svg width="15px" height="10px" viewBox="0 0 13 10">
-                        <path d="M1,5 L11,5"></path>
-                        <polyline points="8 1 12 5 8 9"></polyline>
-                    </svg>
-                </a>
-                <br><br>
+                <b class="orange">Délégué de la protection des données</b> <br>
+                <a class="preslink-orange" href="mailto:dpo@ciglesch.lu">dpo@ciglesch.lu</a>
             </div>
             <br>
             <div class="section-head">
                 <legend class="section-title vert">Contact de l'administration</legend>
             </div>
             <div id="num" class="conf card">
-                <b class="orange">Disponible du lundi au vendredi <br> entre 8h-12h et 13h-17h</b>
-                <a class="preslink-orange" href="mailto:info@ciglesch.lu">info@ciglesch.lu</a>
-                <a class="preslink-orange" href="tel:+352544245200">+352 54 42 45 200</a>
+                <b class="vert">Disponible du lundi au vendredi <br> entre 8h-12h et 13h-17h</b>
+                <a class="preslink" href="mailto:info@ciglesch.lu">info@ciglesch.lu</a>
+                <a class="preslink" href="tel:+352544245200">+352 54 42 45 200</a>
             </div>
         </div>
     </div>
